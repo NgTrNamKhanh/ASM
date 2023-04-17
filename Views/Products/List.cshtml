@@ -1,0 +1,52 @@
+﻿@model IEnumerable<ASM.Models.Product>
+
+@{
+    ViewData["Title"] = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="colored">
+					<h1 class="page-title">Shop</h1>
+					<div class="breadcum-items">
+						<span class="item"><a href="index.html">Home /</a></span>
+						<span class="item colored">Shop</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div><!--site-banner-->
+
+<section class="padding-large">
+	<div class="container">
+		<div class="row">
+
+			<div class="products-grid grid">
+				@foreach (var item in Model) {
+					<figure class="product-style">
+						<img src="@Html.DisplayFor(modelItem => item.ProductImage)" alt="Books" class="product-item">
+						<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to Cart</button>
+						<figcaption>
+							<h3><a asp-action="Detail" asp-route-id="@item.ProductId">@Html.DisplayFor(modelItem => item.ProductName)</a></h3>
+							<p>
+								@foreach (var authorProduct in item.AuthorProducts)
+								{
+									<span>
+										@Html.DisplayFor(modelItem => authorProduct.Author.AuthorName)
+									</span>
+								}
+							</p>
+							<div class="item-price">$ @Html.DisplayFor(modelItem => item.ProductPrice)</div>
+						</figcaption>
+					</figure>
+				}
+			</div>
+
+		</div>
+	</div>
+</section>
+
