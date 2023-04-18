@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\Services\**" />
+    <Content Remove="Data\Services\**" />
+    <EmbeddedResource Remove="Data\Services\**" />
+    <None Remove="Data\Services\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="wwwroot\js\site.js" />
   </ItemGroup>
 
