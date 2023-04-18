@@ -9,265 +9,265 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ASM
 build_property.RootNamespace = ASM
-build_property.ProjectDir = C:\Users\El Almas\source\repos\ASM\
+build_property.ProjectDir = C:\xampp\htdocs\web\ASM\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\El Almas\source\repos\ASM
+build_property.MSBuildProjectDirectory = C:\xampp\htdocs\web\ASM
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Accounts/Create.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Accounts/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudHNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Accounts/Delete.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Accounts/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudHNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Accounts/Details.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Accounts/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudHNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Accounts/Edit.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Accounts/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudHNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Accounts/Index.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Accounts/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Admins/Create.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Admins/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5zXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Admins/Delete.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Admins/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5zXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Admins/Details.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Admins/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5zXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Admins/Edit.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Admins/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5zXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Admins/Index.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Admins/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/AuthorProducts/Create.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/AuthorProducts/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yUHJvZHVjdHNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/AuthorProducts/Delete.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/AuthorProducts/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yUHJvZHVjdHNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/AuthorProducts/Details.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/AuthorProducts/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yUHJvZHVjdHNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/AuthorProducts/Edit.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/AuthorProducts/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yUHJvZHVjdHNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/AuthorProducts/Index.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/AuthorProducts/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yUHJvZHVjdHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Authors/Create.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Authors/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Authors/Delete.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Authors/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Authors/Details.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Authors/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Authors/Edit.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Authors/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Authors/Index.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Authors/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Categories/Create.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Categories/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Categories/Delete.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Categories/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Categories/Details.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Categories/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Categories/Edit.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Categories/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Categories/Index.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Categories/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/CategoryProducts/Create.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/CategoryProducts/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlQcm9kdWN0c1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/CategoryProducts/Delete.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/CategoryProducts/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlQcm9kdWN0c1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/CategoryProducts/Details.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/CategoryProducts/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlQcm9kdWN0c1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/CategoryProducts/Edit.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/CategoryProducts/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlQcm9kdWN0c1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/CategoryProducts/Index.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/CategoryProducts/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlQcm9kdWN0c1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Customers/Create.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Customers/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Customers/Delete.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Customers/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Customers/Details.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Customers/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Customers/Edit.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Customers/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Customers/Index.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Customers/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Home/Index.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Home/Privacy.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/OrderDetails/Create.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/OrderDetails/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJEZXRhaWxzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/OrderDetails/Delete.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/OrderDetails/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJEZXRhaWxzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/OrderDetails/Details.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/OrderDetails/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJEZXRhaWxzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/OrderDetails/Edit.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/OrderDetails/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJEZXRhaWxzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/OrderDetails/Index.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/OrderDetails/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJEZXRhaWxzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Orders/Create.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Orders/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Orders/Delete.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Orders/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Orders/Details.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Orders/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Orders/Edit.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Orders/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Orders/Index.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Orders/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Products/Create.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Products/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Products/Delete.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Products/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Products/Detail.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Products/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRGV0YWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Products/Details.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Products/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Products/Edit.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Products/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Products/Index.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Products/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Products/List.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Products/List.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Shared/Error.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Staffs/Create.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Staffs/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhZmZzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Staffs/Delete.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Staffs/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhZmZzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Staffs/Details.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Staffs/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhZmZzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Staffs/Edit.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Staffs/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhZmZzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Staffs/Index.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Staffs/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhZmZzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/_ViewImports.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/_ViewStart.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/El Almas/source/repos/ASM/Views/Shared/_Layout.cshtml]
+[C:/xampp/htdocs/web/ASM/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-7xuikza0od

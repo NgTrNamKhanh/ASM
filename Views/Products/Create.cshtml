@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
 
 <h1>Create</h1>
@@ -37,6 +38,16 @@
                 <label asp-for="ProductImage" class="control-label"></label>
                 <input asp-for="ProductImage" class="form-control" />
                 <span asp-validation-for="ProductImage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AuthorProducts" class="control-label">Authors</label>
+                <select asp-for="AuthorProducts" asp-items="@ViewBag.AuthorList" class="form-control" multiple></select>
+                <span asp-validation-for="AuthorProducts" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoryProducts" class="control-label">Categories</label>
+                <select asp-for="CategoryProducts" asp-items="@ViewBag.CategoryList" class="form-control" multiple></select>
+                <span asp-validation-for="CategoryProducts" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
