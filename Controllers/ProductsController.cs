@@ -92,9 +92,12 @@ namespace ASM.Controllers
 		// GET: Products/Create
 		public IActionResult Create()
         {
-			ViewData["AuthorList"] = new SelectList(_context.Author, "AuthorId", "AuthorName");
-			ViewData["CategoryList"] = new SelectList(_context.Category, "CategoryId", "CategoryName");
-			return View();
+            var viewModel = new Product
+            {
+                Categories = _context.Category.ToList(),
+                Authors = _context.Author.ToList()
+            };
+            return View(viewModel);
         }
 		// POST: Products/Create
 		// To protect from overposting attacks, enable the specific properties you want to bind to.
@@ -102,38 +105,54 @@ namespace ASM.Controllers
 		[HttpPost]
         //[Route("Create", Name ="CreateProudct")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductId,ProductName,ProductDescription,ProductPrice,ProductStock,ProductImage, AuthorProducts")] Product product, int[] selectedAuthorIds, int[] selectedCategoryIds)
+        public async Task<IActionResult> Create(Product viewModel)
         {
             if (ModelState.IsValid)
             {
+                var product = new Product
+                {
+                    ProductName = viewModel.ProductName,
+                    ProductDescription = viewModel.ProductDescription,
+                    ProductPrice = viewModel.ProductPrice,
+                    ProductStock = viewModel.ProductStock,
+                    ProductImage = viewModel.ProductImage
+                };
+
                 _context.Add(product);
                 await _context.SaveChangesAsync();
-                // Associate the selected authors with the new product
-                if (selectedAuthorIds != null)
+
+                foreach (var categoryId in viewModel.SelectedCategoryIds)
                 {
-                    foreach (int authorId in selectedAuthorIds)
+                    var categoryProduct = new CategoryProduct
                     {
-                        var authorProduct = new AuthorProduct { AuthorId = authorId, ProductId = product.ProductId };
-                        _context.AuthorProduct.Add(authorProduct);
-                    }
+                        CategoryId = categoryId,
+                        ProductId = product.ProductId
+                    };
+
+                    _context.Add(categoryProduct);
                 }
 
-                // Associate the selected categories with the new product
-                if (selectedCategoryIds != null)
+                foreach (var authorId in viewModel.SelectedAuthorIds)
                 {
-                    foreach (int categoryId in selectedCategoryIds)
+                    var authorProduct = new AuthorProduct
                     {
-                        var categoryProduct = new CategoryProduct { CategoryId = categoryId, ProductId = product.ProductId };
-                        _context.CategoryProduct.Add(categoryProduct);
-                    }
+                        AuthorId = authorId,
+                        ProductId = product.ProductId
+                    };
+
+                    _context.Add(authorProduct);
                 }
 
                 await _context.SaveChangesAsync();
+
                 return RedirectToAction(nameof(Index));
             }
-            ViewBag.Authors = new SelectList(_context.Author, "AuthorId", "AuthorName");
-            ViewBag.Categories = new SelectList(_context.Category, "CategoryId", "CategoryName");
-            return View(product);
+
+            viewModel.Categories = _context.Category.ToList();
+            viewModel.Authors = _context.Author.ToList();
+
+            
+            return View(viewModel);
         }
 
         // GET: Products/Edit/5
@@ -146,11 +165,27 @@ namespace ASM.Controllers
                 return NotFound();
             }
 
-            var product = await _context.Product.FindAsync(id);
+            var product = await _context.Product
+            .Include(p => p.AuthorProducts)
+                .ThenInclude(ap => ap.Author)
+            .Include(p => p.CategoryProducts)
+                .ThenInclude(cp => cp.Category)
+            .FirstOrDefaultAsync(m => m.ProductId == id);
             if (product == null)
             {
                 return NotFound();
             }
+            // Create a list of all available authors and categories for the view to display
+            var allAuthors = await _context.Author.ToListAsync();
+            var allCategories = await _context.Category.ToListAsync();
+            ViewBag.AllAuthors = allAuthors;
+            ViewBag.AllCategories = allCategories;
+
+            // Create a list of selected author and category IDs for the view to display
+            var selectedAuthorIds = product.AuthorProducts.Select(ap => ap.AuthorId).ToList();
+            var selectedCategoryIds = product.CategoryProducts.Select(cp => cp.CategoryId).ToList();
+            ViewBag.SelectedAuthorIds = selectedAuthorIds;
+            ViewBag.SelectedCategoryIds = selectedCategoryIds;
             return View(product);
         }
 

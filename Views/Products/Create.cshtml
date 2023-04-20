@@ -1,5 +1,4 @@
 ﻿@model ASM.Models.Product
-
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -40,14 +39,13 @@
                 <span asp-validation-for="ProductImage" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="AuthorProducts" class="control-label">Authors</label>
-                <select asp-for="AuthorProducts" name="selectedAuthorIds" asp-items="@ViewBag.AuthorList" class="form-control" multiple></select>
-                <span asp-validation-for="AuthorProducts" class="text-danger"></span>
+                <label asp-for="SelectedCategoryIds">Categories</label>
+                <select asp-for="SelectedCategoryIds" asp-items="@(new SelectList(Model.Categories, "CategoryId", "CategoryName"))" class="form-control" multiple></select>
             </div>
+
             <div class="form-group">
-                <label asp-for="CategoryProducts" class="control-label">Categories</label>
-                <select asp-for="CategoryProducts" name="selectedCategoryIds" asp-items="@ViewBag.CategoryList" class="form-control" multiple></select>
-                <span asp-validation-for="CategoryProducts" class="text-danger"></span>
+                <label asp-for="SelectedAuthorIds">Authors</label>
+                <select asp-for="SelectedAuthorIds" asp-items="@(new SelectList(Model.Authors, "AuthorId", "AuthorName"))" class="form-control" multiple></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
