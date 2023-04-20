@@ -178,14 +178,14 @@ namespace ASM.Controllers
             // Create a list of all available authors and categories for the view to display
             var allAuthors = await _context.Author.ToListAsync();
             var allCategories = await _context.Category.ToListAsync();
-            ViewBag.AllAuthors = allAuthors;
-            ViewBag.AllCategories = allCategories;
+            product.Authors = allAuthors;
+            product.Categories = allCategories;
 
             // Create a list of selected author and category IDs for the view to display
             var selectedAuthorIds = product.AuthorProducts.Select(ap => ap.AuthorId).ToList();
             var selectedCategoryIds = product.CategoryProducts.Select(cp => cp.CategoryId).ToList();
-            ViewBag.SelectedAuthorIds = selectedAuthorIds;
-            ViewBag.SelectedCategoryIds = selectedCategoryIds;
+            product.SelectedAuthorIds = selectedAuthorIds;
+            product.SelectedCategoryIds = selectedCategoryIds;
             return View(product);
         }
 
@@ -195,18 +195,50 @@ namespace ASM.Controllers
         [HttpPost]
         //[Route("Edit", Name ="EditProduct")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProductId,ProductName,ProductDescription,ProductPrice,ProductStock,ProductImage")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("ProductId,ProductName,ProductDescription,ProductPrice,ProductStock,ProductImage")] Product product, List<int> SelectedAuthorIds, List<int> SelectedCategoryIds)
         {
             if (id != product.ProductId)
             {
                 return NotFound();
             }
-
             if (ModelState.IsValid)
             {
                 try
                 {
                     _context.Update(product);
+
+                    // Update the authors of the product
+                    var existingAuthorIds = _context.AuthorProduct.Where(ap => ap.ProductId == id).Select(ap => ap.AuthorId).ToList();
+                    var newAuthorIds = SelectedAuthorIds.Except(existingAuthorIds);
+                    var deletedAuthorIds = existingAuthorIds.Except(SelectedAuthorIds);
+
+                    foreach (var authorId in newAuthorIds)
+                    {
+                        _context.Add(new AuthorProduct { ProductId = id, AuthorId = authorId });
+                    }
+
+                    foreach (var authorId in deletedAuthorIds)
+                    {
+                        var authorProduct = await _context.AuthorProduct.FirstOrDefaultAsync(ap => ap.ProductId == id && ap.AuthorId == authorId);
+                        _context.AuthorProduct.Remove(authorProduct);
+                    }
+
+                    // Update the categories of the product
+                    var existingCategoryIds = _context.CategoryProduct.Where(cp => cp.ProductId == id).Select(cp => cp.CategoryId).ToList();
+                    var newCategoryIds = SelectedCategoryIds.Except(existingCategoryIds);
+                    var deletedCategoryIds = existingCategoryIds.Except(SelectedCategoryIds);
+
+                    foreach (var categoryId in newCategoryIds)
+                    {
+                        _context.Add(new CategoryProduct { ProductId = id, CategoryId = categoryId });
+                    }
+
+                    foreach (var categoryId in deletedCategoryIds)
+                    {
+                        var categoryProduct = await _context.CategoryProduct.FirstOrDefaultAsync(cp => cp.ProductId == id && cp.CategoryId == categoryId);
+                        _context.CategoryProduct.Remove(categoryProduct);
+                    }
+
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -222,6 +254,16 @@ namespace ASM.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            // Create a list of all available authors and categories for the view to display
+            var allAuthors = await _context.Author.ToListAsync();
+            var allCategories = await _context.Category.ToListAsync();
+            product.Authors = allAuthors;
+            product.Categories = allCategories;
+
+            // Create a list of selected author and category IDs for the view to display
+            product.SelectedAuthorIds = SelectedAuthorIds;
+            product.SelectedCategoryIds = SelectedCategoryIds;
+
             return View(product);
         }
 
