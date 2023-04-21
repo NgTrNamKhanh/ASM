@@ -10616,11 +10616,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\El Almas\\source\\repos\\ASM\\ASM\\ASM.csproj",
+      "projectUniqueName": "C:\\xampp\\htdocs\\web\\ASM\\ASM.csproj",
       "projectName": "ASM",
-      "projectPath": "C:\\Users\\El Almas\\source\\repos\\ASM\\ASM\\ASM.csproj",
+      "projectPath": "C:\\xampp\\htdocs\\web\\ASM\\ASM.csproj",
       "packagesPath": "C:\\Users\\El Almas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\El Almas\\source\\repos\\ASM\\ASM\\obj\\",
+      "outputPath": "C:\\xampp\\htdocs\\web\\ASM\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\El Almas\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -10631,7 +10631,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://www.nuget.org/api/v2/": {}
       },
       "frameworks": {
         "net7.0": {
@@ -10693,7 +10693,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }

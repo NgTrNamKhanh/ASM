@@ -7,6 +7,6 @@
 		public string CategoryDescription { get; set; }
 
 		//Relationship
-		public List<CategoryProduct> CategoryProducts { get; set; }
+		public List<CategoryProduct> CategoryProducts { get; set; } = new List<CategoryProduct>();
 	}
 }

@@ -7,6 +7,6 @@
 		public string AuthorDescription { get; set; }
 		public int AuthorBirthYear { get; set; }
 		//Relationship
-		public List<AuthorProduct> AuthorProducts { get; set; }
+		public List<AuthorProduct> AuthorProducts { get; set; } = new List<AuthorProduct>();
 	}
 }
