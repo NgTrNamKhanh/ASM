@@ -11022,19 +11022,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\El Almas\\.nuget\\packages\\": {}
+    "C:\\Users\\traan\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\El Almas\\source\\repos\\ASM\\ASM.csproj",
+      "projectUniqueName": "E:\\Git\\ASM2 1670\\ASM\\ASM\\ASM.csproj",
       "projectName": "ASM",
-      "projectPath": "C:\\Users\\El Almas\\source\\repos\\ASM\\ASM.csproj",
-      "packagesPath": "C:\\Users\\El Almas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\El Almas\\source\\repos\\ASM\\obj\\",
+      "projectPath": "E:\\Git\\ASM2 1670\\ASM\\ASM\\ASM.csproj",
+      "packagesPath": "C:\\Users\\traan\\.nuget\\packages\\",
+      "outputPath": "E:\\Git\\ASM2 1670\\ASM\\ASM\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\El Almas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\traan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -11042,6 +11047,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -11112,7 +11118,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }
