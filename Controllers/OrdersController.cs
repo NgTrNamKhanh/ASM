@@ -22,8 +22,9 @@ namespace ASM.Controllers
         // GET: Orders
         public async Task<IActionResult> Index()
         {
-            var aSMContext = _context.Order.Include(o => o.Customer);
-            return View(await aSMContext.ToListAsync());
+              return _context.Order != null ? 
+                          View(await _context.Order.ToListAsync()) :
+                          Problem("Entity set 'ASMContext.Order'  is null.");
         }
 
         // GET: Orders/Details/5
@@ -35,7 +36,6 @@ namespace ASM.Controllers
             }
 
             var order = await _context.Order
-                .Include(o => o.Customer)
                 .FirstOrDefaultAsync(m => m.OrderId == id);
             if (order == null)
             {
@@ -48,7 +48,6 @@ namespace ASM.Controllers
         // GET: Orders/Create
         public IActionResult Create()
         {
-            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "CustomerId");
             return View();
         }
 
@@ -57,7 +56,7 @@ namespace ASM.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("OrderId,OrderDate,OrderTotalPrice,OrderStatus,CustomerId")] Order order)
+        public async Task<IActionResult> Create([Bind("OrderId,OrderDate,OrderStatusID,OrderTotalPrice,IsDeleted,OrderStatus,CustomerId")] Order order)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +64,6 @@ namespace ASM.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "CustomerId", order.CustomerId);
             return View(order);
         }
 
@@ -82,7 +80,6 @@ namespace ASM.Controllers
             {
                 return NotFound();
             }
-            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "CustomerId", order.CustomerId);
             return View(order);
         }
 
@@ -91,7 +88,7 @@ namespace ASM.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("OrderId,OrderDate,OrderTotalPrice,OrderStatus,CustomerId")] Order order)
+        public async Task<IActionResult> Edit(int id, [Bind("OrderId,OrderDate,OrderStatusID,OrderTotalPrice,IsDeleted,OrderStatus,CustomerId")] Order order)
         {
             if (id != order.OrderId)
             {
@@ -118,7 +115,6 @@ namespace ASM.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CustomerId"] = new SelectList(_context.Customer, "CustomerId", "CustomerId", order.CustomerId);
             return View(order);
         }
 
@@ -131,7 +127,6 @@ namespace ASM.Controllers
             }
 
             var order = await _context.Order
-                .Include(o => o.Customer)
                 .FirstOrDefaultAsync(m => m.OrderId == id);
             if (order == null)
             {

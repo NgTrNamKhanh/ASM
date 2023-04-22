@@ -5,7 +5,7 @@
 namespace ASM.Migrations
 {
     /// <inheritdoc />
-    public partial class _15 : Migration
+    public partial class fix : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
