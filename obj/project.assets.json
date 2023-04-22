@@ -11022,24 +11022,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Bonjour\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\El Almas\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Bonjour\\Documents\\GitHub\\ASM\\ASM.csproj",
+      "projectUniqueName": "C:\\xampp\\htdocs\\web\\ASM\\ASM.csproj",
       "projectName": "ASM",
-      "projectPath": "C:\\Users\\Bonjour\\Documents\\GitHub\\ASM\\ASM.csproj",
-      "packagesPath": "C:\\Users\\Bonjour\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Bonjour\\Documents\\GitHub\\ASM\\obj\\",
+      "projectPath": "C:\\xampp\\htdocs\\web\\ASM\\ASM.csproj",
+      "packagesPath": "C:\\Users\\El Almas\\.nuget\\packages\\",
+      "outputPath": "C:\\xampp\\htdocs\\web\\ASM\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Bonjour\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\El Almas\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -11047,7 +11042,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://www.nuget.org/api/v2/": {}
       },
       "frameworks": {
         "net7.0": {
@@ -11120,13 +11115,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\Bonjour\\Documents\\GitHub\\ASM\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }
