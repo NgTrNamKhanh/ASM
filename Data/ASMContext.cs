@@ -31,7 +31,7 @@ namespace ASM.Data
 		//public DbSet<ASM.Models.Admin> Admin { get; set; } = default!;
 
         public DbSet<ASM.Models.CartDetails> CartDetails { get; set; }
-        public DbSet<ASM.Models.Cart> Cart { get; set; }
+        public DbSet<ASM.Models.Cart> Carts { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

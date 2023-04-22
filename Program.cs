@@ -2,6 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using ASM.Data;
 using Microsoft.AspNetCore.Identity;
+using ASM.Repository;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ASMContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ASMContext") ?? throw new InvalidOperationException("Connection string 'ASMContext' not found.")));
@@ -14,6 +16,8 @@ builder.Services.
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddTransient<ICartRepository, CartRepository>();
+
 
 var app = builder.Build();
 using (var scope = app.Services.CreateScope())

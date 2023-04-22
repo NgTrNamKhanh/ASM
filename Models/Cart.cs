@@ -9,5 +9,6 @@ namespace ASM.Models
         [Required]
         public string CustomerID { get; set; }
         public bool IsDeleted { get; set; } = false;
+        public ICollection<CartDetails> CartDetails { get; set; }
     }
 }
