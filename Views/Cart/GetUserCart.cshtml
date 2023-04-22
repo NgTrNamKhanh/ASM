@@ -1,0 +1,65 @@
+﻿@model Cart
+@{
+    ViewData["Title"] = "GetUserCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="width: 90%; margin:auto">
+    @if (Model != null && Model.CartDetails != null && Model.CartDetails.Count > 0)
+    {
+        <h3>My Cart</h3>
+        <table class="table table-bordered">
+            <tr>
+                <th>Book</th>
+                <th>Image</th>
+                <th>Authors</th>
+                <th>Genres</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total Price</th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model.CartDetails)
+            {
+                <tr>
+                    <td>@item.Product.ProductName</td>
+                    <td><img src="@item.Product.ProductImage" /></td>
+                    <td>
+                        @if (item.Product.AuthorProducts.Any())
+                        {
+                            var authorNames = item.Product.AuthorProducts.Select(ap => ap.Author.AuthorProducts);
+                            <span>@string.Join(", ", authorNames)</span>
+                        }
+                    </td>
+                    <td>
+                        @if (item.Product.CategoryProducts.Any())
+                        {
+                            var categoryNames = item.Product.CategoryProducts.Select(cp => cp.Category.CategoryName);
+                            <span>@string.Join(", ", categoryNames)</span>
+                        }
+                    </td>
+                    <td>@item.Product.ProductPrice</td>
+                    <td>@item.Quantity</td>
+                    <td>@(item.Product.ProductPrice * @item.Quantity)</td>
+                    <td>
+                        <a class="btn btn-info" href="/Cart/AddItem?productId=@item.ProductID&&redirect=1">+</a>
+                        <a class="btn btn-info" href="/Cart/RemoveItem?productId=@item.ProductID">-</a>
+                    </td>
+                </tr>
+            }
+        </table>
+        <div class="my-2">
+            <h5>Total: </h5> 
+            @(Model.CartDetails.Select(item=>item.Product.ProductPrice*item.Quantity).Sum())
+        </div>
+        <div class="my-2">
+            <a class="btn btn-primary">Check Out</a>
+        </div>
+    }
+    else
+    {
+        <h4>Cart is empty</h4>
+
+    }
+</div>
+

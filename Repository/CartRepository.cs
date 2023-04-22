@@ -21,7 +21,7 @@ namespace ASM.Repository
             string userId = GetUserId();
             using var transaction = _db.Database.BeginTransaction(); //allow serveral databases operations to be processed in an atomic manner 
             try
-            {A
+            {
                 if (string.IsNullOrEmpty(userId))
                     throw new Exception("user is not logged-in");
                 var cart = await GetCart(userId);
