@@ -13,9 +13,11 @@ namespace ASM.Controllers
         {
             _cartRepo = cartRepo;
         }
-        public IActionResult AddItem(int productId, int qty=1)
+        public async Task<IActionResult> AddItem(int productId, int qty=1, int redirect=0)
         {
-            return View();
+            if (redirect == 0)
+                return Ok();
+            return RedirectToAction("GetUserCart");
         }
         public IActionResult RemoveItem(int productId)
         {
