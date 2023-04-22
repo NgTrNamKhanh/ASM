@@ -823,3 +823,12 @@ C:\Users\El Almas\source\repos\ASM\ASM\obj\Debug\net7.0\refint\ASM.dll
 C:\Users\El Almas\source\repos\ASM\ASM\obj\Debug\net7.0\ASM.pdb
 C:\Users\El Almas\source\repos\ASM\ASM\obj\Debug\net7.0\ASM.genruntimeconfig.cache
 C:\Users\El Almas\source\repos\ASM\ASM\obj\Debug\net7.0\ref\ASM.dll
+C:\xampp\htdocs\web\ASM\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\xampp\htdocs\web\ASM\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\xampp\htdocs\web\ASM\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\xampp\htdocs\web\ASM\bin\Debug\net7.0\Microsoft.Extensions.Identity.Core.dll
+C:\xampp\htdocs\web\ASM\bin\Debug\net7.0\Microsoft.Extensions.Identity.Stores.dll
+C:\xampp\htdocs\web\ASM\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
+C:\xampp\htdocs\web\ASM\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.UI.dll
+C:\xampp\htdocs\web\ASM\bin\Debug\net7.0\Microsoft.Extensions.FileProviders.Embedded.dll
+C:\xampp\htdocs\web\ASM\obj\Debug\net7.0\ASM.MvcApplicationPartsAssemblyInfo.cs

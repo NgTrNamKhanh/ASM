@@ -4,15 +4,18 @@ using Microsoft.CodeAnalysis.Classification;
 using Microsoft.CodeAnalysis.Elfie.Serialization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-
-
+using Microsoft.AspNetCore.Identity;
+using ASM.Constants;
 
 namespace ASM.Data
 {
     public class ASMDbInitializer
     {
-        public static void Seed(IApplicationBuilder applicationBuilder)
+        public static async void Seed(IApplicationBuilder applicationBuilder)
         {
+           
+
+
             using (var serivceScope = applicationBuilder.ApplicationServices.CreateScope())
             {
                 var context = serivceScope.ServiceProvider.GetService<ASMContext>();
