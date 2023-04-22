@@ -21,10 +21,22 @@ namespace ASM.Data
                 EmailConfirmed = true
 
             };
-            var userInDb = await userMgr.FindByEmailAsync(admin.Email);
-            if (userInDb is not null) {
+            var staff = new IdentityUser
+            {
+                UserName = "staff@gmail.com",
+                Email = "staff@gmail.com",
+                EmailConfirmed = true
+            };
+            var adminInDb = await userMgr.FindByEmailAsync(admin.Email);
+            if (adminInDb is null) {
                 await userMgr.CreateAsync(admin, "Admin@123");
                 await userMgr.AddToRoleAsync(admin, Roles.Admin.ToString());
+            }
+            var staffInDb = await userMgr.FindByEmailAsync(staff.Email);
+            if (staffInDb is null)
+            {
+                await userMgr.CreateAsync(staff, "Staff@123");
+                await userMgr.AddToRoleAsync(staff, Roles.Staff.ToString());
             }
 
         }
