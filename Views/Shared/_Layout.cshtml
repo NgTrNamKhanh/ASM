@@ -48,11 +48,7 @@
 					<div class="col-md-6">
 						<div class="right-element">
 							<partial name ="_LoginPartial"/>
-							
-							<a href="#" class="cart for-buy"><i class="icon icon-clipboard"></i><span id="cartCount">0</span></a>
-
 							<div class="action-menu">
-
 								<div class="search-bar">
 									<a href="#" class="search-button search-toggle" data-selector="#header-wrap">
 										<i class="icon icon-search"></i>
@@ -287,21 +283,5 @@
 	@await RenderSectionAsync("Scripts", required: false)
 </body>
 
-<script>
-	loadcartCount();
-	async function loadcartCount(productId) {
-		try {
-			var response = await fetch(`/Cart/GetTotalIteamInCart`);
-			console.log(response);
-			if (response.status == 200) {
-				var result = await response.json();
-				var cartCountEl = document.getElementById("cartCount")
-				cartCountEl.innerHTML = result;
-			}
-		}
-		catch (err) {
-			console.log(err);
-		}
-	}
-</script>	
+
 </html>
