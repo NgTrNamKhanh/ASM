@@ -76,7 +76,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="C:\Users\Bonjour\Documents\GitHub\ASM\Models\.editorconfig" />
     <None Include="wwwroot\js\site.js" />
   </ItemGroup>
 
@@ -393,10 +392,6 @@
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <EditorConfigFiles Remove="C:\Users\Bonjour\Documents\GitHub\ASM\Models\.editorconfig" />
   </ItemGroup>
 
 </Project>

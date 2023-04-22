@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ASM.Migrations
 {
     [DbContext(typeof(ASMContext))]
-    [Migration("20230422073712_1")]
-    partial class _1
+    [Migration("20230417145401_2")]
+    partial class _2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -115,52 +115,6 @@ namespace ASM.Migrations
                     b.ToTable("AuthorProduct");
                 });
 
-            modelBuilder.Entity("ASM.Models.Cart", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("CustomerID")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Cart");
-                });
-
-            modelBuilder.Entity("ASM.Models.CartDetails", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
-
-                    b.Property<int>("CartID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.HasKey("id");
-
-                    b.HasIndex("CartID");
-
-                    b.HasIndex("ProductID");
-
-                    b.ToTable("CartDetails");
-                });
-
             modelBuilder.Entity("ASM.Models.Category", b =>
                 {
                     b.Property<int>("CategoryId")
@@ -177,12 +131,7 @@ namespace ASM.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ProductId")
-                        .HasColumnType("int");
-
                     b.HasKey("CategoryId");
-
-                    b.HasIndex("ProductId");
 
                     b.ToTable("Category");
                 });
@@ -239,16 +188,10 @@ namespace ASM.Migrations
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
 
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("OrderStatus")
-                        .HasColumnType("int");
-
-                    b.Property<int>("OrderStatusID")
                         .HasColumnType("int");
 
                     b.Property<float>("OrderTotalPrice")
@@ -269,9 +212,6 @@ namespace ASM.Migrations
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
@@ -283,27 +223,6 @@ namespace ASM.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("OrderDetail");
-                });
-
-            modelBuilder.Entity("ASM.Models.OrderStatus", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("StatusName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("OrderStatus");
                 });
 
             modelBuilder.Entity("ASM.Models.Product", b =>
@@ -379,32 +298,6 @@ namespace ASM.Migrations
                     b.Navigation("Author");
 
                     b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("ASM.Models.CartDetails", b =>
-                {
-                    b.HasOne("ASM.Models.Cart", "Cart")
-                        .WithMany()
-                        .HasForeignKey("CartID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ASM.Models.Product", "Product")
-                        .WithMany("CartDetails")
-                        .HasForeignKey("ProductID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Cart");
-
-                    b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("ASM.Models.Category", b =>
-                {
-                    b.HasOne("ASM.Models.Product", null)
-                        .WithMany("Categories")
-                        .HasForeignKey("ProductId");
                 });
 
             modelBuilder.Entity("ASM.Models.CategoryProduct", b =>
@@ -513,10 +406,6 @@ namespace ASM.Migrations
             modelBuilder.Entity("ASM.Models.Product", b =>
                 {
                     b.Navigation("AuthorProducts");
-
-                    b.Navigation("CartDetails");
-
-                    b.Navigation("Categories");
 
                     b.Navigation("CategoryProducts");
 
