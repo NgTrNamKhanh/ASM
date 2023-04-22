@@ -15,25 +15,26 @@ namespace ASM.Controllers
         }
         public async Task<IActionResult> AddItem(int productId, int qty=1, int redirect=0)
         {
+            var cartCount = await _cartRepo.AddItem(productId, qty);
             if (redirect == 0)
                 return Ok();
             return RedirectToAction("GetUserCart");
         }
-        public IActionResult RemoveItem(int productId)
+        public async Task<IActionResult> RemoveItem(int productId)
         {
-            return View();
+            var cartCount = await _cartRepo.RemoveItem(productId);
+            return RedirectToAction("GetUserCart");
         }
-        public IActionResult GetUserCart()
+        public async Task<IActionResult> GetUserCart()
         {
-            return View();
+            var cart = await _cartRepo.GetUserCart();
+            return View(cart);
         }
-        public IActionResult GetCartCount()
+        public async Task<IActionResult> GetTotalItemInCart()
         {
-            return View();
-        }
-        public IActionResult GetTotalItemInCart()
-        {
-            return View();
+            int cartItem = await _cartRepo.GetCartItemCount();
+            return View(cartItem);
+            return ();
         }
     }
 }
