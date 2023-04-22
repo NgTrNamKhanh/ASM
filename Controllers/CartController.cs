@@ -17,7 +17,7 @@ namespace ASM.Controllers
         {
             var cartCount = await _cartRepo.AddItem(productId, qty);
             if (redirect == 0)
-                return Ok();
+                return Ok(cartCount);
             return RedirectToAction("GetUserCart");
         }
         public async Task<IActionResult> RemoveItem(int productId)
@@ -34,7 +34,6 @@ namespace ASM.Controllers
         {
             int cartItem = await _cartRepo.GetCartItemCount();
             return View(cartItem);
-            return ();
         }
     }
 }

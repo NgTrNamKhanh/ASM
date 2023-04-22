@@ -35,7 +35,7 @@
 						@Html.DisplayFor(model => model.ProductDescription)
 					</p>
 
-					<button type="submit" name="add-to-cart" value="27545" class="button">Add to cart</button>
+					<button type="submit" onclick="add(@item.ProductId) name=" add-to-cart" value="27545" class="button">Add to cart</button>
 
 				</div>
 			</div>
@@ -43,4 +43,21 @@
 		</div>
 	</div>
 </section>
+<script>
+	loadcartCount();
+	async function loadcartCount(productId) {
+		try {
+			var response = await fetch(`/Cart/GetTotalIteamInCart`);
+			console.log(response);
+			if (response.status == 200) {
+				var result = await response.json();
+				var cartCountEl = document.getElementById("cartCount")
+				cartCountEl.innerHTML = result;
+			}
+		}
+		catch (err) {
+			console.log(err);
+		}
+	}
+</script>
 
