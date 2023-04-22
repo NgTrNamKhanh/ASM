@@ -52,3 +52,22 @@
 	</div>
 </section>
 
+@section Scripts{
+	<script>
+		alert("hello");
+		async function add(productId){
+			try{
+				var response = await fetch(`/Cart/AddItem?productId=${productId}`);
+				if(response.status == 200){
+					var result = await response.json();
+					console.log(result);
+					var cartCountEl = document.getElementById("cartCount")
+					cartCountEl.innerHTML = result;
+				}
+			}
+			catch(err){
+				console.log(err);
+			}
+		}
+	</script>
+}
