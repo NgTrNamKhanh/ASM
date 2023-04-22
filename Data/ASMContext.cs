@@ -4,10 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ASM.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace ASM.Data
 {
-    public class ASMContext : DbContext
+    public class ASMContext : IdentityDbContext
     {
         public ASMContext (DbContextOptions<ASMContext> options)
             : base(options)
