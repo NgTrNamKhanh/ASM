@@ -823,6 +823,7 @@ C:\Users\El Almas\source\repos\ASM\ASM\obj\Debug\net7.0\refint\ASM.dll
 C:\Users\El Almas\source\repos\ASM\ASM\obj\Debug\net7.0\ASM.pdb
 C:\Users\El Almas\source\repos\ASM\ASM\obj\Debug\net7.0\ASM.genruntimeconfig.cache
 C:\Users\El Almas\source\repos\ASM\ASM\obj\Debug\net7.0\ref\ASM.dll
+<<<<<<< HEAD
 C:\Users\Bonjour\Documents\GitHub\ASM\bin\Debug\net7.0\appsettings.Development.json
 C:\Users\Bonjour\Documents\GitHub\ASM\bin\Debug\net7.0\appsettings.json
 C:\Users\Bonjour\Documents\GitHub\ASM\bin\Debug\net7.0\ASM.staticwebassets.runtime.json
@@ -1098,3 +1099,14 @@ C:\Users\Bonjour\Documents\GitHub\ASM\obj\Debug\net7.0\refint\ASM.dll
 C:\Users\Bonjour\Documents\GitHub\ASM\obj\Debug\net7.0\ASM.pdb
 C:\Users\Bonjour\Documents\GitHub\ASM\obj\Debug\net7.0\ASM.genruntimeconfig.cache
 C:\Users\Bonjour\Documents\GitHub\ASM\obj\Debug\net7.0\ref\ASM.dll
+=======
+C:\xampp\htdocs\web\ASM\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\xampp\htdocs\web\ASM\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\xampp\htdocs\web\ASM\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\xampp\htdocs\web\ASM\bin\Debug\net7.0\Microsoft.Extensions.Identity.Core.dll
+C:\xampp\htdocs\web\ASM\bin\Debug\net7.0\Microsoft.Extensions.Identity.Stores.dll
+C:\xampp\htdocs\web\ASM\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
+C:\xampp\htdocs\web\ASM\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.UI.dll
+C:\xampp\htdocs\web\ASM\bin\Debug\net7.0\Microsoft.Extensions.FileProviders.Embedded.dll
+C:\xampp\htdocs\web\ASM\obj\Debug\net7.0\ASM.MvcApplicationPartsAssemblyInfo.cs
+>>>>>>> 9a8ab24a524150eb82b519cffb471272d1d36a4f
