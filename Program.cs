@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using ASM.Data;
 using Microsoft.AspNetCore.Identity;
 using ASM.Repository;
+using System.Security.Policy;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ASMContext>(options =>

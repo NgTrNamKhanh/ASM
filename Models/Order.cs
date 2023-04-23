@@ -14,8 +14,9 @@ namespace ASM.Models
         public bool IsDeleted { get; set; } = false;
         [Required]
         public string CustomerId { get; set; }
+        public string StaffId { get; set; }
         //Relationship
-       
+
         public OrderStatus OrderStatus { get; set; }
         public List<OrderDetail> OrderDetails { get; set; }
 
