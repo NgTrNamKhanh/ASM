@@ -12,9 +12,11 @@ namespace ASM.Models
         public int OrderStatusID { get; set; }
         public float OrderTotalPrice { get; set; }
         public bool IsDeleted { get; set; } = false;
-        public int OrderStatus { get; set; }
-        //Relationship
+        [Required]
         public string CustomerId { get; set; }
+        //Relationship
+       
+        public OrderStatus OrderStatus { get; set; }
         public List<OrderDetail> OrderDetails { get; set; }
 
     }

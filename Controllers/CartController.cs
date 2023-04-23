@@ -35,5 +35,15 @@ namespace ASM.Controllers
             int cartItem = await _cartRepo.GetCartItemCount();
             return Ok(cartItem);
         }
+
+        public async Task<IActionResult> CheckOut()
+        {
+            bool isCheckOut = await _cartRepo.DoCheckOut();
+            if (!isCheckOut) 
+            {
+                throw new Exception("Something wrong happned");
+            }
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

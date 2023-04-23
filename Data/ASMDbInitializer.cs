@@ -1,4 +1,4 @@
-﻿using ASM.Migrations;
+﻿//using ASM.Migrations;
 using ASM.Models;
 using Microsoft.CodeAnalysis.Classification;
 using Microsoft.CodeAnalysis.Elfie.Serialization;
@@ -162,16 +162,51 @@ namespace ASM.Data
                         });
                         context.SaveChanges();
                     }
-                    ////Order
-                    //if (!context.Order.Any())
-                    //{
+                    //Order Status 
+                    if (!context.OrderStatus.Any())
+                    {
+                        context.OrderStatus.AddRange(new List<OrderStatus>()
+                        {
+                            new OrderStatus()
+                            {
+                                //Id = 1,
+                                StatusId = 1,
+                                StatusName = "Pending",
+                            },
+                            new OrderStatus()
+                            {
+                                //Id = 2,
+                                StatusId = 2,
+                                StatusName = "Shipped",
+                            },
+                            new OrderStatus()
+                            {
+                                //Id = 3,
+                                StatusId = 3,
+                                StatusName = "Delivered",
+                            },
+                            new OrderStatus()
+                            {
+                                //Id = 4,
+                                StatusId = 4, 
+                                StatusName = "Cancelled",
+                            },
+                            new OrderStatus()
+                            {
+                                //Id = 5,
+                                StatusId = 5, 
+                                StatusName = "Returned",
+                            },
+                            new OrderStatus()
+                            {
+                                //Id = 6,
+                                StatusId = 6, 
+                                StatusName = "Refund",
+                            }
+                        });
+                        context.SaveChanges();
+                    }
 
-                    //}
-                    ////OrderDetail
-                    //if (!context.OrderDetail.Any())
-                    //{
-
-                    //}
 
 
                 }

@@ -92,6 +92,9 @@ namespace ASM.Migrations
                     b.Property<int>("CartID")
                         .HasColumnType("int");
 
+                    b.Property<float>("Price")
+                        .HasColumnType("real");
+
                     b.Property<int>("ProductID")
                         .HasColumnType("int");
 
@@ -166,9 +169,6 @@ namespace ASM.Migrations
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("OrderStatus")
-                        .HasColumnType("int");
-
                     b.Property<int>("OrderStatusID")
                         .HasColumnType("int");
 
@@ -176,6 +176,8 @@ namespace ASM.Migrations
                         .HasColumnType("real");
 
                     b.HasKey("OrderId");
+
+                    b.HasIndex("OrderStatusID");
 
                     b.ToTable("Order");
                 });
@@ -191,14 +193,14 @@ namespace ASM.Migrations
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
 
+                    b.Property<float>("Price")
+                        .HasColumnType("real");
+
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
-
-                    b.Property<float>("TotalPrice")
-                        .HasColumnType("real");
 
                     b.HasKey("Id");
 
@@ -217,13 +219,13 @@ namespace ASM.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("StatusId")
+                        .HasColumnType("int");
 
                     b.Property<string>("StatusName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.HasKey("Id");
 
@@ -521,6 +523,17 @@ namespace ASM.Migrations
                     b.Navigation("Category");
 
                     b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("ASM.Models.Order", b =>
+                {
+                    b.HasOne("ASM.Models.OrderStatus", "OrderStatus")
+                        .WithMany()
+                        .HasForeignKey("OrderStatusID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("OrderStatus");
                 });
 
             modelBuilder.Entity("ASM.Models.OrderDetail", b =>

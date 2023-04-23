@@ -2,6 +2,7 @@
 using ASM.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 
 namespace ASM.Repository
 {
@@ -38,15 +39,17 @@ namespace ASM.Repository
                 var cartItem = _db.CartDetails.FirstOrDefault(a => a.CartID == cart.Id && a.ProductID == productId);
                 if (cartItem is not null)
                 {
-                    cartItem.Quantity = qty;
+                    cartItem.Quantity += qty;
                 }
                 else
                 {
+                    var product = _db.Product.Find(productId);
                     cartItem = new CartDetails
                     {
                         ProductID = productId,
                         CartID = cart.Id,
-                        Quantity = qty
+                        Quantity = qty,
+                        Price = product.ProductPrice,
                     };
                     _db.CartDetails.Add(cartItem);
                 }
@@ -119,6 +122,64 @@ namespace ASM.Repository
                         select new { cartDetail.id}
                         ).ToListAsync();
             return data.Count;
+        }
+        public async Task<bool> DoCheckOut() 
+        {
+            using var transaction = _db.Database.BeginTransaction();
+            try 
+            {
+                //move data from cartdetail to order and order detail then we will remove cart detail
+                //entry order
+                var userId = GetUserId() ;
+                if(string.IsNullOrEmpty(userId)) 
+                {
+                    throw new Exception("User not logged in");
+                }
+                var cart = await GetCart(userId);
+                if (cart is null) 
+                {
+                    throw new Exception("Invalid cart!");
+                }
+                var cartDetail = _db.CartDetails
+                                    .Where(a => a.CartID == cart.Id).ToList();
+                if (cartDetail.Count == 0) 
+                {
+                    throw new Exception("Cart is empty");
+                }
+                var order = new Order
+                {
+                    CustomerId = userId,
+                    OrderDate = DateTime.UtcNow,
+                    OrderStatusID = 1, //pending
+
+                };
+                _db.Order.Add(order);
+                _db.SaveChanges();
+                //Enty orderdetail
+                foreach (var item in cartDetail) 
+                {
+                    var orderDetail = new OrderDetail
+                    {
+                        ProductId = item.ProductID,
+                        OrderId = order.OrderId,
+                        Quantity = item.Quantity,
+                        Price = item.Price,
+                    };
+                    _db.OrderDetail.Add(orderDetail);
+                }
+                _db.SaveChanges();
+
+                //remove data from cart detail
+                _db.CartDetails.RemoveRange(cartDetail); //remove mulitple cartdetail => removerange
+                _db.SaveChanges();
+                transaction.Commit();
+                return true;
+
+            }
+            catch (Exception ex) 
+            {
+                return false;
+            }
         }
         private string GetUserId()
         {

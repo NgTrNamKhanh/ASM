@@ -12,6 +12,8 @@ namespace ASM.Models
         [Required]
         public int Quantity { get; set; }
         [Required]
+        public float Price { get; set; }
+        [Required]
 
         public Product Product { get; set; }
         public Cart Cart { get; set; }

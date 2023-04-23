@@ -280,6 +280,23 @@
 	<script src="~/js/jquery-1.11.0.min.js"></script>
 	<script src="~/js/plugins.js"></script>
 	<script src="~/js/script.js"></script>
+	<script>
+		loadCartCount();
+		async function loadCartCount() {
+			try {
+				var response = await fetch(`/Cart/GetTotalItemInCart`);
+				if (response.status == 200) {
+					var result = await response.json();
+					console.log(result);
+					var cartCountEl = document.getElementById("cartCount")
+					cartCountEl.innerHTML = result;
+				}
+			}
+			catch (err) {
+				console.log(err);
+			}
+		}
+	</script>
 	@await RenderSectionAsync("Scripts", required: false)
 </body>
 

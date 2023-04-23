@@ -3,11 +3,11 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
-<a href="/Cart/GetUserCart" class="cart for-buy"><i class="icon icon-clipboard"></i><span id="cartCount">0</span></a>
 @if (SignInManager.IsSignedIn(User))
 {
+    <a href="/Cart/GetUserCart" class="cart for-buy"><i class="icon icon-clipboard"></i><span id="cartCount">0</span></a>
     <a id="manage" class="user-account for-buy" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
-        <i class="icon icon-user"></i><span>Account</span>
+        <i class="icon icon-user"></i><span>Hello <span id="username">@User.Identity?.Name</span></span>
         @if (User.IsInRole("Admin"))
         {
             <span>(Admin)</span>    
@@ -21,4 +21,5 @@ else
 {
     <a class="user-account for-buy" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
 }
+
 

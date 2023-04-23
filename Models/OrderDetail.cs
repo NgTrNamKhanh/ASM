@@ -12,7 +12,7 @@ namespace ASM.Models
         public Product Product { get; set; }
 
         public int Quantity { get; set; }
-        public float TotalPrice { get; set; }
+        public float Price { get; set; }
 
     }
 }

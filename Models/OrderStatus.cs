@@ -6,9 +6,10 @@ namespace ASM.Models
     {
         public int Id { get; set; }
         [Required]
-        public string Name { get; set; }
+        public int StatusId { get; set; }
+        [Required, MaxLength(20)]
+        public string? StatusName { get; set; }
 
-        public String StatusName { get; set; }
 
 
     }
