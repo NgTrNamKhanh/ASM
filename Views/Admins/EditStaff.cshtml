@@ -10,9 +10,8 @@
 
 <div class="col-md-4">
     <form asp-action="EditStaff">
-        <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="Id"/>
         <div class="form-floating mb-3">
             <input asp-for="UserName" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
             <label asp-for="UserName">UserName</label>

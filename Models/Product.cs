@@ -29,8 +29,8 @@ namespace ASM.Models
         public List<CategoryProduct> CategoryProducts { get; set; } = new List<CategoryProduct>();
 
 
-        public List<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
-        public List<CartDetails> CartDetails { get; set; }
+        public List<OrderDetail>? OrderDetails { get; set; } = new List<OrderDetail>();
+        public List<CartDetails>? CartDetails { get; set; }
 
 
         [NotMapped]
@@ -38,7 +38,7 @@ namespace ASM.Models
         [NotMapped]
         public List<int> SelectedAuthorIds { get; set; } = new List<int>();
         [NotMapped]
-        public Category Category { get; set; }
+        //public Category? Category { get; set; }
         public List<Category> Categories { get; set; } = new List<Category>();
         [NotMapped]
         public List<Author> Authors { get; set; } = new List<Author>();

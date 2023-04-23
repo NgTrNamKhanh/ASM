@@ -104,7 +104,7 @@ namespace ASM.Controllers
             {
                 return NotFound();
             }
-            ViewData["StaffId"] = new SelectList(staff.UserName, staff.Email);
+            ViewData["StaffId"] = new SelectList(staff.Id, staff.UserName, staff.Email);
             return View(staff);
         }
 
@@ -115,15 +115,15 @@ namespace ASM.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditStaff(string id, [Bind("UserName,Email")] IdentityUser staff)
+        public async Task<IActionResult> EditStaff([Bind("Id,UserName,Email")] IdentityUser staff)
         {
             var userMgr = _service.GetService<UserManager<IdentityUser>>();
             var roleMgr = _service.GetService<RoleManager<IdentityRole>>();
             
-            if (id != staff.Id)
-            {
-                return NotFound();
-            }
+            //if (id != staff.Id)
+            //{
+            //    return NotFound();
+            //}
 
             if (ModelState.IsValid)
             {
