@@ -1,0 +1,33 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@model IdentityUser
+@{
+    ViewData["Title"] = "CreateStaff";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>CreateStaff</h1>
+
+<div class="col-md-4">
+        <form asp-action="CreateStaff">
+            <h2>Create a new staff account.</h2>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+            <div class="form-floating mb-3">
+                <input asp-for="UserName" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                <label asp-for="UserName">UserName</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                <label asp-for="Email">Email</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" name ="password" autocomplete="new-password" aria-required="true" placeholder="password" />
+                <label>Password</label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+

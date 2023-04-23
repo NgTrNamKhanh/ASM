@@ -19,7 +19,6 @@
 
   <ItemGroup>
     <Compile Remove="Controllers\AccountsController.cs" />
-    <Compile Remove="Controllers\AdminsController.cs" />
     <Compile Remove="Controllers\AuthorProductsController.cs" />
     <Compile Remove="Controllers\CategoryProductsController.cs" />
     <Compile Remove="Controllers\CustomersController.cs" />

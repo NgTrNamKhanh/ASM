@@ -146,12 +146,18 @@ namespace ASM.Repository
                 {
                     throw new Exception("Cart is empty");
                 }
+                //Get total price
+                float price = 0;
+                foreach (var a in cartDetail) 
+                {
+                    price += a.Price * a.Quantity;
+                }
                 var order = new Order
                 {
                     CustomerId = userId,
                     OrderDate = DateTime.UtcNow,
                     OrderStatusID = 1, //pending
-
+                    OrderTotalPrice = price,
                 };
                 _db.Order.Add(order);
                 _db.SaveChanges();
