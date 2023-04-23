@@ -9,16 +9,12 @@
   <ItemGroup>
     <Compile Remove="Data\Services\**" />
     <Compile Remove="Views\Orders\**" />
-    <Compile Remove="Views\Staffs\**" />
     <Content Remove="Data\Services\**" />
     <Content Remove="Views\Orders\**" />
-    <Content Remove="Views\Staffs\**" />
     <EmbeddedResource Remove="Data\Services\**" />
     <EmbeddedResource Remove="Views\Orders\**" />
-    <EmbeddedResource Remove="Views\Staffs\**" />
     <None Remove="Data\Services\**" />
     <None Remove="Views\Orders\**" />
-    <None Remove="Views\Staffs\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,7 +22,6 @@
     <Compile Remove="Controllers\AuthorProductsController.cs" />
     <Compile Remove="Controllers\CategoryProductsController.cs" />
     <Compile Remove="Controllers\CustomersController.cs" />
-    <Compile Remove="Controllers\StaffsController.cs" />
     <Compile Remove="Models\Account.cs" />
     <Compile Remove="Models\Admin.cs" />
     <Compile Remove="Models\Customer.cs" />
