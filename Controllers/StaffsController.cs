@@ -1,4 +1,5 @@
 ﻿using ASM.Data;
+using ASM.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -25,5 +26,26 @@ namespace ASM.Controllers
 							.ToListAsync();
 			return View(orders);
         }
+		[HttpPost]
+		public async Task<IActionResult> VerifyOrder(int? id)
+        {
+			if (id == null || _dbContext.Order == null)
+			{
+				return NotFound();
+			}
+			var order = await _dbContext.Order
+			.Include(p => p.OrderStatus)
+			.FirstOrDefaultAsync(m => m.OrderId == id);
+			var newOrder = new Order
+			{
+				OrderId = order.OrderId,
+				CustomerId = order.CustomerId,
+				OrderDate = order.OrderDate,
+				OrderTotalPrice = order.OrderTotalPrice,
+				OrderStatusID = 3,
+			};
+			_dbContext.Update(order);
+			return RedirectToAction("ViewOrders");
+		}
 	}
 }
