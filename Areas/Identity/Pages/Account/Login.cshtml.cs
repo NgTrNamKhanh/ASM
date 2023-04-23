@@ -127,7 +127,7 @@ namespace ASM.Areas.Identity.Pages.Account
                         returnUrl = Url.Action("Index", "Authors");
                     }
                     else if (roles.Contains("Staff")) {
-                        returnUrl = Url.Action("Index", "Products");
+                        returnUrl = Url.Action("ViewOrders", "Staffs");
                     }
                     return LocalRedirect(returnUrl);
                 }

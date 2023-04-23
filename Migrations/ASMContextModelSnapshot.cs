@@ -176,7 +176,6 @@ namespace ASM.Migrations
                         .HasColumnType("real");
 
                     b.Property<string>("StaffId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("OrderId");
