@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ASM.Data;
 using ASM.Models;
+using ASM.Constants;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ASM.Controllers
 {
@@ -20,6 +22,7 @@ namespace ASM.Controllers
         {
             _context = context;
         }
+        [Authorize(Roles = "Staff")]
         [HttpGet]
         //[Route("Index", Name = "GetAllProductsStaff")]
         // GET: Products
@@ -64,10 +67,12 @@ namespace ASM.Controllers
 
 			return View(product);
 		}
-		//[HttpGet]
-		//[Route("{id}", Name = "DetailsProductStaff")]
-		// GET: Products/Details/5
-		public async Task<IActionResult> Details(int? id)
+        //[HttpGet]
+        //[Route("{id}", Name = "DetailsProductStaff")]
+        // GET: Products/Details/5
+        [Authorize(Roles = "Staff")]
+
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Product == null)
             {
@@ -87,10 +92,12 @@ namespace ASM.Controllers
 
             return View(product);
         }
-		//[HttpGet]
-		//[Route("Create", Name = "CreateForm")]
-		// GET: Products/Create
-		public IActionResult Create()
+        //[HttpGet]
+        //[Route("Create", Name = "CreateForm")]
+        // GET: Products/Create
+        [Authorize(Roles = "Staff")]
+
+        public IActionResult Create()
         {
             var viewModel = new Product
             {
@@ -99,10 +106,12 @@ namespace ASM.Controllers
             };
             return View(viewModel);
         }
-		// POST: Products/Create
-		// To protect from overposting attacks, enable the specific properties you want to bind to.
-		// For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-		[HttpPost]
+        // POST: Products/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Staff")]
+
+        [HttpPost]
         //[Route("Create", Name ="CreateProudct")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Product viewModel)
@@ -158,6 +167,8 @@ namespace ASM.Controllers
         // GET: Products/Edit/5
         //[HttpGet]
         //[Route("Edit", Name ="EditForm")]
+        [Authorize(Roles = "Staff")]
+
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Product == null)
@@ -192,6 +203,8 @@ namespace ASM.Controllers
         // POST: Products/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Staff")]
+
         [HttpPost]
         //[Route("Edit", Name ="EditProduct")]
         [ValidateAntiForgeryToken]
@@ -270,6 +283,8 @@ namespace ASM.Controllers
         // GET: Products/Delete/
         //[HttpGet]
         //[HttpDelete("{id}", Name ="DeleteProductById")]
+        [Authorize(Roles = "Staff")]
+
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Product == null)
@@ -288,6 +303,8 @@ namespace ASM.Controllers
         }
 
         // POST: Products/Delete/5
+        [Authorize(Roles = "Staff")]
+
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

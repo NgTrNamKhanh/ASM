@@ -18,6 +18,7 @@ builder.Services.
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<ICartRepository, CartRepository>();
+builder.Services.AddTransient<IUserOrderRepository, UserOrderRepository>();
 
 
 var app = builder.Build();

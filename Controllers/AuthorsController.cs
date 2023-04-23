@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ASM.Data;
 using ASM.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ASM.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AuthorsController : Controller
     {
         private readonly ASMContext _context;

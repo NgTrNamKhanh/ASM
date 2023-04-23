@@ -17,6 +17,7 @@
             <th>Id</th>
             <th>Username</th>
             <th>Email</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -26,6 +27,9 @@
                 <td>@staff.Id</td>
                 <td>@staff.UserName</td>
                 <td>@staff.Email</td>
+                <td>
+                    <a class="btn btn-info" href="/Admins/EditStaff?id=@staff.Id"> Edit </a>
+                </td>
             </tr>
         }
     </tbody>

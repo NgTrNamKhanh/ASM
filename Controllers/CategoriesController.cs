@@ -7,9 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ASM.Data;
 using ASM.Models;
+using ASM.Constants;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ASM.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CategoriesController : Controller
     {
         private readonly ASMContext _context;

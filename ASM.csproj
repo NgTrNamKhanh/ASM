@@ -8,12 +8,16 @@
 
   <ItemGroup>
     <Compile Remove="Data\Services\**" />
+    <Compile Remove="Views\Orders\**" />
     <Compile Remove="Views\Staffs\**" />
     <Content Remove="Data\Services\**" />
+    <Content Remove="Views\Orders\**" />
     <Content Remove="Views\Staffs\**" />
     <EmbeddedResource Remove="Data\Services\**" />
+    <EmbeddedResource Remove="Views\Orders\**" />
     <EmbeddedResource Remove="Views\Staffs\**" />
     <None Remove="Data\Services\**" />
+    <None Remove="Views\Orders\**" />
     <None Remove="Views\Staffs\**" />
   </ItemGroup>
 

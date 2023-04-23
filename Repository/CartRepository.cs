@@ -46,6 +46,8 @@ namespace ASM.Repository
                     var product = _db.Product.Find(productId);
                     cartItem = new CartDetails
                     {
+                        Cart = cart,
+                        Product = product,
                         ProductID = productId,
                         CartID = cart.Id,
                         Quantity = qty,
@@ -140,8 +142,8 @@ namespace ASM.Repository
                 {
                     throw new Exception("Invalid cart!");
                 }
-                var cartDetail = _db.CartDetails
-                                    .Where(a => a.CartID == cart.Id).ToList();
+                var cartDetail = await _db.CartDetails
+                                    .Where(a => a.CartID == cart.Id).Include(od => od.Product).ToListAsync();
                 if (cartDetail.Count == 0) 
                 {
                     throw new Exception("Cart is empty");
@@ -166,7 +168,9 @@ namespace ASM.Repository
                 {
                     var orderDetail = new OrderDetail
                     {
+                        Order = order,
                         ProductId = item.ProductID,
+                        Product = item.Product,
                         OrderId = order.OrderId,
                         Quantity = item.Quantity,
                         Price = item.Price,

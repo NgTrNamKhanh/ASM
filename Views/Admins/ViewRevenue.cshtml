@@ -1,4 +1,5 @@
-﻿@model IEnumerable<ASM.Models.Product>
+﻿@model List<ProductRevenueViewModel>
+
 @{
     ViewData["Title"] = "ViewRevenue";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -9,35 +10,17 @@
     <thead>
         <tr>
             <th>Product Name</th>
-            <th>Authors</th>
-            <th>Genre</th>
             <th>Revenue</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var product in  Model)
+        @foreach (var product in Model)
         {
             <tr>
                 <td>@product.ProductName</td>
-                <td>
-                    @foreach (var authorProduct in product.AuthorProducts)
-                    {
-                        @Html.DisplayFor(modelItem => authorProduct.Author.AuthorName)
-                    }
-                </td>
-                <td>
-                    @foreach (var categoryProduct in product.CategoryProducts)
-                    {
-                        @Html.DisplayFor(modelItem => categoryProduct.Category.CategoryName)
-                    }
-                </td>
-                <td>
-                    @foreach (var orderDetail in product.OrderDetails)
-                    {
-                        @Html.DisplayFor(modelItem => orderDetail.Price)
-                    }
-                </td>
+                <td>@product.Revenue</td>
             </tr>
         }
+
     </tbody>
 </table>
