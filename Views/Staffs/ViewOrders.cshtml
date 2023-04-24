@@ -9,6 +9,7 @@
             <th>Order Total Price</th>
 			<th>Product Name</th>
 			<th>Order Status</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -31,7 +32,37 @@
                 <td>
                     <form asp-controller="Staffs" asp-action="VerifyOrder" method="post" >
                         <input type="hidden" asp-for="@order.OrderId" name="id" />
-                        <button type="submit">Verify Order</button>
+                        <button class="btn btn-small" type="submit" style="height: 40px; width: 70px; padding:2px; padding: 0 5px; white-space: normal">Verify Order</button>
+                    </form>
+                </td>
+                <td>
+                    <form asp-controller="Staffs" asp-action="ShippedOrder" method="post">
+                        <input type="hidden" asp-for="@order.OrderId" name="id" />
+                        <button class="btn btn-small" type="submit" style="height: 40px; width: 70px; padding:2px; padding: 0 5px; white-space: normal">Shipped Order</button>
+                    </form>
+                </td>
+                <td>
+                    <form asp-controller="Staffs" asp-action="PendingOrder" method="post">
+                        <input type="hidden" asp-for="@order.OrderId" name="id" />
+                        <button class="btn btn-small" type="submit" style="height: 40px; width: 70px; padding:2px; padding: 0 5px; white-space: normal">Pending Order</button>
+                    </form>
+                </td>
+                <td>
+                    <form asp-controller="Staffs" asp-action="CancelledOrder" method="post">
+                        <input type="hidden" asp-for="@order.OrderId" name="id" />
+                        <button class="btn btn-small" type="submit" style="height: 40px; width: 70px; padding:2px; padding: 0 5px; white-space: normal">Cancelled Order</button>
+                    </form>
+                </td>
+                <td>
+                    <form asp-controller="Staffs" asp-action="ReturnedOrder" method="post">
+                        <input type="hidden" asp-for="@order.OrderId" name="id" />
+                        <button class="btn btn-small" type="submit" style="height: 40px; width: 70px; padding:2px; padding: 0 5px; white-space: normal">Returned Order</button>
+                    </form>
+                </td>
+                <td>
+                    <form asp-controller="Staffs" asp-action="RefundOrder" method="post">
+                        <input type="hidden" asp-for="@order.OrderId" name="id" />
+                        <button class="btn btn-small" type="submit" style="height: 40px; width: 70px; padding:2px; padding: 0 5px; white-space: normal">Refund Order</button>
                     </form>
                 </td>
             </tr>
