@@ -41,7 +41,6 @@ namespace ASM.Controllers
         public async Task<IActionResult> ViewRevenue()
         {
             var orderDetails = await _db.OrderDetail.Include(od => od.Product).ToListAsync();
-            var hello = 1;
             // Group the OrderDetails records by ProductId, and calculate the total revenue for each product
             var productRevenue = orderDetails
                 .GroupBy(od => od.ProductId)
@@ -72,6 +71,7 @@ namespace ASM.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateStaff([Bind("UserName,Email")] IdentityUser staff, string password)
         {
+            
             var userMgr = _service.GetService<UserManager<IdentityUser>>();
             var roleMgr = _service.GetService<RoleManager<IdentityRole>>();
             //if (ModelState.IsValid)
@@ -104,7 +104,6 @@ namespace ASM.Controllers
             {
                 return NotFound();
             }
-            ViewData["StaffId"] = new SelectList(staff.Id, staff.UserName, staff.Email);
             return View(staff);
         }
 
@@ -129,7 +128,10 @@ namespace ASM.Controllers
             {
                 try
                 {
-                    await userMgr.UpdateAsync(staff);
+                    var editStaff = await _userManager.FindByIdAsync(staff.Id);
+                    editStaff.UserName = staff.UserName;
+                    editStaff.Email = staff.Email;
+                    await userMgr.UpdateAsync(editStaff);
 
                 }
                 catch (DbUpdateConcurrencyException)

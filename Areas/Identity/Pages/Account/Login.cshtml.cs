@@ -119,16 +119,6 @@ namespace ASM.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
-                    var user = await _userManager.FindByEmailAsync(Input.Email);
-                    var roles = await _userManager.GetRolesAsync(user);
-
-                    if (roles.Contains("Admin"))
-                    {
-                        returnUrl = Url.Action("Index", "Authors");
-                    }
-                    else if (roles.Contains("Staff")) {
-                        returnUrl = Url.Action("ViewOrders", "Staffs");
-                    }
                     return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)
