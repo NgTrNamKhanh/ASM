@@ -40,7 +40,7 @@ namespace ASM.Controllers
         // GET: Revenue
         public async Task<IActionResult> ViewRevenue()
         {
-            var orderDetails = await _db.OrderDetail.Include(od => od.Product).ToListAsync();
+            var orderDetails = await _db.OrderDetail.Where(od=>od.Order.OrderStatusID == 3).Include(od => od.Product).ToListAsync();
             // Group the OrderDetails records by ProductId, and calculate the total revenue for each product
             var productRevenue = orderDetails
                 .GroupBy(od => od.ProductId)
