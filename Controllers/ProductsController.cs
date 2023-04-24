@@ -323,6 +323,23 @@ namespace ASM.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [HttpPost, ActionName("Search")]
+        public async Task<ActionResult> SearchProduct(string searchString)
+        { 
+            var products = await _context.Product.Include(a=>a.ProductName).ToListAsync();
+            if (products.Count() != 0)
+            {
+                products = products
+                    .Where(a=> a.ProductName.ToLower()
+                    .Contains(searchString.ToLower()))
+                    .ToList();
+            }
+            else 
+            {
+                throw new Exception("No products available");
+            }
+            return View(products);
+        }
         private bool ProductExists(int id)
         {
           return (_context.Product?.Any(e => e.ProductId == id)).GetValueOrDefault();

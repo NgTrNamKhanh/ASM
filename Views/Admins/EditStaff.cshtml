@@ -9,7 +9,7 @@
 <h1>EditStaff</h1>
 
 <div class="col-md-4">
-    <form asp-action="EditStaff">
+    <form method="post" action="/Admins/EditStaff?id="${Id}"">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <input type="hidden" asp-for="Id"/>
         <div class="form-floating mb-3">
