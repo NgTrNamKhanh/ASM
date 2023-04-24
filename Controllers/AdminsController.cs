@@ -73,9 +73,6 @@ namespace ASM.Controllers
         {
             
             var userMgr = _service.GetService<UserManager<IdentityUser>>();
-            var roleMgr = _service.GetService<RoleManager<IdentityRole>>();
-            //if (ModelState.IsValid)
-            //{
             var newStaff = new IdentityUser
             {
                 UserName = staff.UserName,
@@ -87,8 +84,6 @@ namespace ASM.Controllers
             await userMgr.AddToRoleAsync(newStaff, Roles.Staff.ToString());
 
             return RedirectToAction(nameof(ViewStaff));
-            //}
-            //return View(staff);
         }
 
         // GET: Staff 
@@ -117,13 +112,6 @@ namespace ASM.Controllers
         public async Task<IActionResult> EditStaff([Bind("Id,UserName,Email")] IdentityUser staff)
         {
             var userMgr = _service.GetService<UserManager<IdentityUser>>();
-            var roleMgr = _service.GetService<RoleManager<IdentityRole>>();
-            
-            //if (id != staff.Id)
-            //{
-            //    return NotFound();
-            //}
-
             if (ModelState.IsValid)
             {
                 try
@@ -133,21 +121,13 @@ namespace ASM.Controllers
                     editStaff.Email = staff.Email;
                     await userMgr.UpdateAsync(editStaff);
 
-                }
-                catch (DbUpdateConcurrencyException)
+                } 
+                catch 
                 {
-                    //if (!AdminExists(admin.AdminId))
-                    //{
-                    //    return NotFound();
-                    //}
-                    //else
-                    //{
-                    //    throw;
-                    //}
+                    throw new Exception("Error");
                 }
                 return RedirectToAction(nameof(ViewStaff));
             }
-            ViewData["StaffId"] = new SelectList(staff.UserName, staff.Email);
             return View(staff);
         }
 
