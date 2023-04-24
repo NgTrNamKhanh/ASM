@@ -24,9 +24,10 @@
 <section class="padding-large">
 	<div class="container">
 		<div class="row">
-
+			<h3>@ViewBag.Result</h3>
 			<div class="products-grid grid">
-				@foreach (var item in Model) {
+					@foreach (var item in Model)
+					{
 					<figure class="product-style">
 						<a asp-action="Detail" asp-route-id="@item.ProductId">
 							<img src="@Html.DisplayFor(modelItem => item.ProductImage)" alt="Books" class="product-item">
@@ -45,7 +46,8 @@
 							<div class="item-price">$ @Html.DisplayFor(modelItem => item.ProductPrice)</div>
 						</figcaption>
 					</figure>
-				}
+					}
+				
 			</div>
 
 		</div>

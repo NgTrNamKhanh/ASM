@@ -53,8 +53,8 @@
 									<a href="" class="search-button search-toggle" data-selector="#header-wrap">
 										<i class="icon icon-search"></i>
 									</a>
-									<form asp-action="Search" class="search-box">
-										<input class="search-field text search-input" placeholder="Search">
+									<form asp-controller="Products" asp-action="SearchProduct" method="post" class="search-box">
+										<input class="search-field text search-input" type="text" placeholder="Search" name="searchString">
 									</form>
 								</div>
 							</div>

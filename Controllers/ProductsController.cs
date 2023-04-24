@@ -9,6 +9,7 @@ using ASM.Data;
 using ASM.Models;
 using ASM.Constants;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.CodeAnalysis.Elfie.Diagnostics;
 
 namespace ASM.Controllers
 {
@@ -17,6 +18,7 @@ namespace ASM.Controllers
     public class ProductsController : Controller
     {
         private readonly ASMContext _context;
+        private static List<Product> TempSearch;
 
         public ProductsController(ASMContext context)
         {
@@ -36,13 +38,22 @@ namespace ASM.Controllers
 		//[Route("List", Name="GetAllProductsCustomer")]
 		//GET: List Products 
 		public async Task<IActionResult> List()
-        {
+		{
 			var products = await _context.Product
-	       .Include(p => p.AuthorProducts)
-	       .ThenInclude(ap => ap.Author)
-	       .ToListAsync();
+				.Include(p => p.AuthorProducts)
+				.ThenInclude(ap => ap.Author)
+				.ToListAsync();
 
-			return View(products);
+			if (TempSearch != null)
+			{
+				var searchResults = TempSearch;
+				ViewBag.Result = "Found " + searchResults.Count + " book";
+				return View(searchResults);
+			}
+			else
+			{
+				return View(products);
+			}
 		}
 		//[HttpGet]
 		//[Route("{id}", Name ="DetailProductCustomer")]
@@ -323,22 +334,16 @@ namespace ASM.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        [HttpPost, ActionName("Search")]
-        public async Task<ActionResult> SearchProduct(string searchString)
+        [HttpPost]
+        [ActionName("SearchProduct")]
+        public IActionResult SearchProduct(string searchString)
         { 
-            var products = await _context.Product.Include(a=>a.ProductName).ToListAsync();
-            if (products.Count() != 0)
-            {
-                products = products
-                    .Where(a=> a.ProductName.ToLower()
-                    .Contains(searchString.ToLower()))
-                    .ToList();
-            }
-            else 
-            {
-                throw new Exception("No products available");
-            }
-            return View(products);
+			var products = _context.Product.Where(p => p.ProductName.ToLower()
+                .Contains(searchString.ToLower()))
+                .Include(p => p.AuthorProducts)
+			   .ThenInclude(ap => ap.Author).ToList();
+			TempSearch= products;
+			return RedirectToAction("List", "Products");
         }
         private bool ProductExists(int id)
         {
