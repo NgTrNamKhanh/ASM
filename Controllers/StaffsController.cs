@@ -1,5 +1,6 @@
 ﻿using ASM.Data;
 using ASM.Models;
+using ASM.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -11,10 +12,14 @@ namespace ASM.Controllers
     public class StaffsController : Controller
     {
         private readonly ASMContext _dbContext;
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public StaffsController(ASMContext dbContext)
+        public StaffsController(ASMContext dbContext, UserManager<IdentityUser> userManager, IHttpContextAccessor httpContextAccessor)
         {
             _dbContext = dbContext;
+			_userManager = userManager;
+			_httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<IActionResult> ViewOrders()
@@ -27,25 +32,35 @@ namespace ASM.Controllers
 			return View(orders);
         }
 		[HttpPost]
+		[ActionName("VerifyOrder")]
 		public async Task<IActionResult> VerifyOrder(int? id)
         {
-			if (id == null || _dbContext.Order == null)
+            var staffId = GetUserId();
+            if (string.IsNullOrEmpty(staffId))
+            {
+                throw new Exception("User not logged in");
+            }
+            if (id == null || _dbContext.Order == null)
 			{
 				return NotFound();
 			}
 			var order = await _dbContext.Order
 			.Include(p => p.OrderStatus)
 			.FirstOrDefaultAsync(m => m.OrderId == id);
-			var newOrder = new Order
-			{
-				OrderId = order.OrderId,
-				CustomerId = order.CustomerId,
-				OrderDate = order.OrderDate,
-				OrderTotalPrice = order.OrderTotalPrice,
-				OrderStatusID = 3,
-			};
-			_dbContext.Update(order);
-			return RedirectToAction("ViewOrders");
+            // Update the order status
+            order.OrderStatusID = 3;
+            order.StaffId = staffId;
+
+            _dbContext.Update(order);
+            await _dbContext.SaveChangesAsync();
+            return RedirectToAction("ViewOrders");
 		}
-	}
+        private string GetUserId()
+        {
+            var principal = _httpContextAccessor.HttpContext.User;
+            string userId = _userManager.GetUserId(principal);
+            return userId;
+
+        }
+    }
 }

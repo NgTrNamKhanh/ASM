@@ -29,8 +29,9 @@
                     
 				<td>@order.OrderStatus.StatusName</td>
                 <td>
-                    <form method="post" action="@Url.Action("VerifyOrder?id=${@order.OrderId}")">
-                        <button type="submit">Verify Existing Orders</button>
+                    <form asp-controller="Staffs" asp-action="VerifyOrder" method="post" >
+                        <input type="hidden" asp-for="@order.OrderId" name="id" />
+                        <button type="submit">Verify Order</button>
                     </form>
                 </td>
             </tr>
