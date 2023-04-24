@@ -43,21 +43,23 @@
 		</div>
 	</div>
 </section>
-<script>
-	loadcartCount();
-	async function loadcartCount(productId) {
-		try {
-			var response = await fetch(`/Cart/GetTotalIteamInCart`);
-			console.log(response);
-			if (response.status == 200) {
-				var result = await response.json();
-				var cartCountEl = document.getElementById("cartCount")
-				cartCountEl.innerHTML = result;
+@section Scripts{
+	<script>
+		async function add(productId) {
+			try {
+				var response = await fetch(`/Cart/AddItem?productId=${productId}`);
+				if (response.status == 200) {
+					var result = await response.json();
+					console.log(result);
+					var cartCountEl = document.getElementById("cartCount")
+					cartCountEl.innerHTML = result;
+				}
+			}
+			catch (err) {
+				console.log(err);
 			}
 		}
-		catch (err) {
-			console.log(err);
-		}
-	}
-</script>
+	</script>
+}
+
 
