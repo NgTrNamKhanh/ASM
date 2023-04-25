@@ -107,11 +107,6 @@ namespace ASM.Controllers
         // GET: Staff 
         public async Task<IActionResult> EditStaff(string? id)
         {
-            if (id == null || _userManager.GetUsersInRoleAsync("Staff") == null)
-            {
-                return NotFound();
-            }
-
             var staff = await _userManager.FindByIdAsync(id);
             if (staff == null)
             {
@@ -149,48 +144,32 @@ namespace ASM.Controllers
             return View(staff);
         }
 
-        //// GET: Admins/Delete/5
-        //public async Task<IActionResult> Delete(int? id)
-        //{
-        //    if (id == null || _context.Admin == null)
-        //    {
-        //        return NotFound();
-        //    }
+        // GET: Admins/Delete/5
+        public async Task<IActionResult> DeleteStaff(string? id)
+        {
+			var staff = await _userManager.FindByIdAsync(id);
+			if (staff == null)
+			{
+				return NotFound();
+			}
+			return View(staff);
+		}
 
-        //    var admin = await _context.Admin
-        //        .Include(a => a.Account)
-        //        .FirstOrDefaultAsync(m => m.AdminId == id);
-        //    if (admin == null)
-        //    {
-        //        return NotFound();
-        //    }
+        // POST: Admins/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(string id)
+        {
 
-        //    return View(admin);
-        //}
+            var staff = await _userManager.FindByIdAsync(id);
+            if (staff != null)
+            {
+                await _userManager.DeleteAsync(staff);
+            }
 
-        //// POST: Admins/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> DeleteConfirmed(int id)
-        //{
-        //    if (_context.Admin == null)
-        //    {
-        //        return Problem("Entity set 'ASMContext.Admin'  is null.");
-        //    }
-        //    var admin = await _context.Admin.FindAsync(id);
-        //    if (admin != null)
-        //    {
-        //        _context.Admin.Remove(admin);
-        //    }
+            return RedirectToAction(nameof(ViewStaff));
+        }
 
-        //    await _context.SaveChangesAsync();
-        //    return RedirectToAction(nameof(Index));
-        //}
-
-        //private bool AdminExists(int id)
-        //{
-        //  return (_context.Admin?.Any(e => e.AdminId == id)).GetValueOrDefault();
-        //}
 
     }
 }

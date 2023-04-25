@@ -35,8 +35,7 @@
 						@Html.DisplayFor(model => model.ProductDescription)
 					</p>
 
-					<button type="submit" onclick="add(@Model.ProductId) name=" add-to-cart" value="27545" class="button">Add to cart</button>
-
+                    <button type="button" onclick="add(@Model.ProductId)" class="add-to-cart" asp-action="GetUsercart">Add to cart</button>
 				</div>
 			</div>
 

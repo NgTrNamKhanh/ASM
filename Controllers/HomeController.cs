@@ -1,7 +1,9 @@
 ﻿using ASM.Constants;
+using ASM.Data;
 using ASM.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace ASM.Controllers
@@ -10,13 +12,15 @@ namespace ASM.Controllers
 	{
 		private readonly ILogger<HomeController> _logger;
         private readonly SignInManager<IdentityUser> _signinManager;
+		private readonly ASMContext _context;
 
-        public HomeController(ILogger<HomeController> logger, SignInManager<IdentityUser> signinManager)
+        public HomeController(ILogger<HomeController> logger, SignInManager<IdentityUser> signinManager, ASMContext context)
 		{
 			_logger = logger;
             _signinManager = signinManager;
+			_context = context;
 		}
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
 		{
 			if (_signinManager.IsSignedIn(User)) 
 			{
@@ -29,7 +33,11 @@ namespace ASM.Controllers
                     return RedirectToAction("ViewOrders", "Staffs");
                 }
             }
-            return View();
+            var products = await _context.Product
+                .Include(p => p.AuthorProducts)
+                .ThenInclude(ap => ap.Author)
+                .ToListAsync();
+            return View(products);
 		}
 
 		public IActionResult Privacy()
