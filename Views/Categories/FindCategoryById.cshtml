@@ -1,7 +1,6 @@
 ﻿@model IEnumerable<ASM.Models.Product>
-
 @{
-    ViewData["Title"] = "List";
+    ViewData["Title"] = "FindCategoryById";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -10,10 +9,9 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="colored">
-					<h1 class="page-title">Shop</h1>
+					<h1 class="page-title">@ViewData["Name"]</h1>
 					<div class="breadcum-items">
-						<span class="item"><a href="index.html">Home /</a></span>
-						<span class="item colored">Shop</span>
+						<span class="item">@ViewData["Description"]</span>
 					</div>
 				</div>
 			</div>
@@ -24,13 +22,12 @@
 <section class="padding-large">
 	<div class="container">
 		<div class="row">
-			<h3>@ViewBag.Result</h3>
 			<div class="products-grid grid">
-					@foreach (var item in Model)
-					{
+				@foreach (var item in Model)
+				{
 					<figure class="product-style">
 						<a asp-action="Detail" asp-route-id="@item.ProductId">
-							<img src="@Html.DisplayFor(modelItem => item.ProductImage)" alt="Books" class="product-item" >
+							<img src="@Html.DisplayFor(modelItem => item.ProductImage)" alt="Books" class="product-item">
 						</a>
 						<button type="button" onclick="add(@item.ProductId)" class="add-to-cart">Add to Cart</button>
 						<figcaption>
@@ -39,17 +36,15 @@
 								@foreach (var authorProduct in item.AuthorProducts)
 								{
 									<span>
-										<a asp-controller="Authors" asp-action="FindAuthorById" asp-route-id="@authorProduct.AuthorId">
-											@Html.DisplayFor(modelItem => authorProduct.Author.AuthorName)
-										</a>
+										@Html.DisplayFor(modelItem => authorProduct.Author.AuthorName)
 									</span>
 								}
 							</p>
 							<div class="item-price">$ @Html.DisplayFor(modelItem => item.ProductPrice)</div>
 						</figcaption>
 					</figure>
-					}
-				
+				}
+
 			</div>
 
 		</div>
@@ -58,19 +53,20 @@
 
 @section Scripts{
 	<script>
-		async function add(productId){
-			try{
+		async function add(productId) {
+			try {
 				var response = await fetch(`/Cart/AddItem?productId=${productId}`);
-				if(response.status == 200){
+				if (response.status == 200) {
 					var result = await response.json();
 					console.log(result);
 					var cartCountEl = document.getElementById("cartCount")
 					cartCountEl.innerHTML = result;
 				}
 			}
-			catch(err){
+			catch (err) {
 				console.log(err);
 			}
 		}
 	</script>
 }
+

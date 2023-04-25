@@ -84,7 +84,9 @@
 										@foreach (var authorProduct in product.AuthorProducts)
 										{
 											<span>
-												@Html.DisplayFor(modelItem => authorProduct.Author.AuthorName)
+												<a asp-controller="Authors" asp-action="FindAuthorById" asp-route-id="@authorProduct.AuthorId">
+													@Html.DisplayFor(modelItem => authorProduct.Author.AuthorName)
+												</a>
 											</span>
 										}</p>
 										<div class="item-price">$ @Html.DisplayFor(modelItem => product.ProductPrice)</div>

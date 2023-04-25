@@ -16,17 +16,23 @@
 				<div class="product-detail">
 					<h1>@Html.DisplayFor(model => model.ProductName)</h1>
 					<p>
-						@if (Model.AuthorProducts.Any())
+						@foreach (var authorProduct in Model.AuthorProducts)
 						{
-							var authorNames = Model.AuthorProducts.Select(ap => ap.Author.AuthorName);
-							<span>@string.Join(", ", authorNames)</span>
+							<span>
+								<a asp-controller="Authors" asp-action="FindAuthorById" asp-route-id="@authorProduct.AuthorId">
+									@Html.DisplayFor(modelItem => authorProduct.Author.AuthorName)
+								</a>
+							</span>
 						}
 					</p>
 					<p>
-						@if (Model.CategoryProducts.Any())
+						@foreach (var categoryProduct in Model.CategoryProducts)
 						{
-							var categoryNames = Model.CategoryProducts.Select(cp => cp.Category.CategoryName);
-							<span>@string.Join(", ", categoryNames)</span>
+							<span>
+								<a asp-controller="Authors" asp-action="FindAuthorById" asp-route-id="@categoryProduct.CategoryId">
+									@Html.DisplayFor(modelItem => categoryProduct.Category.CategoryName)
+								</a>
+							</span>
 						}
 					</p>
 					<span class="price colored">$@Html.DisplayFor(model => model.ProductPrice)</span>
