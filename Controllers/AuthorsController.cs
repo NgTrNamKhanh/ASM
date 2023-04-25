@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace ASM.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    
     public class AuthorsController : Controller
     {
         private readonly ASMContext _context;
@@ -20,17 +20,28 @@ namespace ASM.Controllers
         {
             _context = context;
         }
-
-        // GET: Authors
-        public async Task<IActionResult> Index()
+		[Authorize(Roles = "Admin")]
+		// GET: Authors
+		public async Task<IActionResult> Index()
         {
               return _context.Author != null ? 
                           View(await _context.Author.ToListAsync()) :
                           Problem("Entity set 'ASMContext.Author'  is null.");
         }
-
-        // GET: Authors/Details/5
-        public async Task<IActionResult> Details(int? id)
+		public async Task<IActionResult> FindAuthorById(int id)
+		{
+            var author = await _context.Author.FindAsync(id);
+            ViewData["Name"] = author.AuthorName;
+            ViewData["Description"] = author.AuthorDescription;
+            var products = await _context.Product
+                .Include(p => p.AuthorProducts)
+                .ThenInclude(ap => ap.Author)
+                .ToListAsync();
+            return View(products);
+		}
+		[Authorize(Roles = "Admin")]
+		// GET: Authors/Details/5
+		public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Author == null)
             {
@@ -46,17 +57,17 @@ namespace ASM.Controllers
 
             return View(author);
         }
-
-        // GET: Authors/Create
-        public IActionResult Create()
+		[Authorize(Roles = "Admin")]
+		// GET: Authors/Create
+		public IActionResult Create()
         {
             return View();
         }
-
-        // POST: Authors/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+		[Authorize(Roles = "Admin")]
+		// POST: Authors/Create
+		// To protect from overposting attacks, enable the specific properties you want to bind to.
+		// For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+		[HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("AuthorId,AuthorName,AuthorDescription,AuthorBirthYear")] Author author)
         {
@@ -84,11 +95,11 @@ namespace ASM.Controllers
             }
             return View(author);
         }
-
-        // POST: Authors/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+		[Authorize(Roles = "Admin")]
+		// POST: Authors/Edit/5
+		// To protect from overposting attacks, enable the specific properties you want to bind to.
+		// For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+		[HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("AuthorId,AuthorName,AuthorDescription,AuthorBirthYear")] Author author)
         {
@@ -119,9 +130,9 @@ namespace ASM.Controllers
             }
             return View(author);
         }
-
-        // GET: Authors/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+		[Authorize(Roles = "Admin")]
+		// GET: Authors/Delete/5
+		public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Author == null)
             {
@@ -137,9 +148,9 @@ namespace ASM.Controllers
 
             return View(author);
         }
-
-        // POST: Authors/Delete/5
-        [HttpPost, ActionName("Delete")]
+		[Authorize(Roles = "Admin")]
+		// POST: Authors/Delete/5
+		[HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
