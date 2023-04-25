@@ -23,14 +23,24 @@
     <tbody>
         @foreach (var staff in Model)
         {
-            <tr>
+            @*@foreach (var staff in model.staffUsers)
+            {*@
+              <tr>
                 <td>@staff.Id</td>
                 <td>@staff.UserName</td>
                 <td>@staff.Email</td>
                 <td>
                     <a class="btn btn-info" href="/Admins/EditStaff?id=@staff.Id"> Edit </a>
                 </td>
-            </tr>
+            </tr>  
+            @*}
+            @foreach (var revenue in model.staffRevenue)
+            {
+                <tr>
+                    <td>@revenue.StaffId</td>
+                    <td>@revenue.Revenue</td>
+                </tr>
+            }*@
         }
     </tbody>
 </table>

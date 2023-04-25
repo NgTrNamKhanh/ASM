@@ -30,7 +30,7 @@
 					{
 					<figure class="product-style">
 						<a asp-action="Detail" asp-route-id="@item.ProductId">
-							<img src="@Html.DisplayFor(modelItem => item.ProductImage)" alt="Books" class="product-item">
+							<img src="@Html.DisplayFor(modelItem => item.ProductImage)" alt="Books" class="product-item" >
 						</a>
 						<button type="button" onclick="add(@item.ProductId)" class="add-to-cart">Add to Cart</button>
 						<figcaption>

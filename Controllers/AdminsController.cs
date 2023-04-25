@@ -35,6 +35,24 @@ namespace ASM.Controllers
         public async Task<IActionResult> ViewStaff()
         {
             var staffUsers = await _userManager.GetUsersInRoleAsync("Staff");
+            //var orders = await _db.Order.Where(o => o.OrderStatusID == 3)
+            //    .ToListAsync();
+            //// Group the OrderDetails records by ProductId, and calculate the total revenue for each product
+            //var staffRevenue = orders
+            //    .GroupBy(o => o.StaffId)
+            //    .Select(g => new StaffRevenueViewModel
+            //    {
+            //        StaffId = g.First().StaffId,
+            //        Revenue = g.Sum(o => o.OrderTotalPrice)
+            //    })
+            //    .OrderByDescending(pr => pr.Revenue)
+            //    .ToList();
+
+            //var viewModel = new StaffViewModel
+            //{
+            //    staffUsers = staffUsers,
+            //    staffRevenue = staffRevenue
+            //};
             return View(staffUsers);
         }
         // GET: Revenue

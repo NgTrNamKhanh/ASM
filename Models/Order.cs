@@ -1,4 +1,5 @@
-﻿using Microsoft.Build.Framework;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.Build.Framework;
 using Microsoft.VisualBasic;
 
 namespace ASM.Models

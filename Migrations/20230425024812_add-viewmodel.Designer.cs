@@ -4,6 +4,7 @@ using ASM.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ASM.Migrations
 {
     [DbContext(typeof(ASMContext))]
-    partial class ASMContextModelSnapshot : ModelSnapshot
+    [Migration("20230425024812_add-viewmodel")]
+    partial class addviewmodel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -158,6 +161,9 @@ namespace ASM.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("IdentityUserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -174,6 +180,8 @@ namespace ASM.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("OrderId");
+
+                    b.HasIndex("IdentityUserId");
 
                     b.HasIndex("OrderStatusID");
 
@@ -518,11 +526,17 @@ namespace ASM.Migrations
 
             modelBuilder.Entity("ASM.Models.Order", b =>
                 {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "IdentityUser")
+                        .WithMany()
+                        .HasForeignKey("IdentityUserId");
+
                     b.HasOne("ASM.Models.OrderStatus", "OrderStatus")
                         .WithMany()
                         .HasForeignKey("OrderStatusID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("IdentityUser");
 
                     b.Navigation("OrderStatus");
                 });
