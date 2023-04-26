@@ -72,7 +72,7 @@
 
 					<div class="col-md-2">
 						<div class="main-logo">
-							<a href="/"><img src="images/main-logo.png" alt="logo"></a>
+							<a href="/"><img src="~/images/main-logo.png" alt="logo"></a>
 						</div>
 
 					</div>
@@ -84,25 +84,9 @@
 								<ul class="menu-list">
 									<li class="menu-item active"><a href="/Home/Index" data-effect="Home">Home</a></li>
 									<li class="menu-item"><a href="#about" class="nav-link" data-effect="About">About</a></li>
-									<li class="menu-item has-sub">
+									<li class="menu-item">
 										<a asp-area="" asp-controller="Products" asp-action="List">Shop</a>
-
-										<ul>
-											<li class="active"><a href="index.html">Home</a></li>
-											<li><a href="about.html">About</a></li>
-											<li><a href="styles.html">Styles</a></li>
-											<li><a href="blog.html">Blog</a></li>
-											<li><a href="single-post.html">Post Single</a></li>
-											<li><a href="shop.html">Our Store</a></li>
-											<li><a href="single-product.html">Product Single</a></li>
-											<li><a href="contact.html">Contact</a></li>
-											<li><a href="thank-you.html">Thank You</a></li>
-										</ul>
-
 									</li>
-									<li class="menu-item"><a asp-area="" asp-controller="Products" asp-action="Index">Products</a></li>
-									<li class="menu-item"><a asp-area="" asp-controller="Categories" asp-action="Index">Categories</a></li>
-									<li class="menu-item"><a asp-area="" asp-controller="Authors" asp-action="Index">Authors</a></li>
 								</ul>
 
 								<div class="hamburger">
@@ -135,36 +119,14 @@
 
 					<div class="footer-item">
 						<div class="company-brand">
-							<img src="images/main-logo.png" alt="logo" class="footer-logo">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sagittis sed ptibus liberolectus nonet psryroin. Amet sed lorem posuere sit iaculis amet, ac urna. Adipiscing fames semper erat ac in suspendisse iaculis.</p>
+							<img src="~/images/main-logo.png" alt="logo" class="footer-logo" id="about">
+							<p>Bonkers is an online book store that offers a wide variety of books for book lovers of all ages and interests. From bestsellers to niche genres, Bonkers has something for everyone. Customers can easily browse through the website and purchase their favorite books with just a few clicks. With a user-friendly interface and affordable prices, Bonkers makes buying books online an enjoyable and convenient experience. </p>
 						</div>
 					</div>
 
 				</div>
 
 				<div class="col-md-2">
-
-					<div class="footer-menu">
-						<h5>About Us</h5>
-						<ul class="menu-list">
-							<li class="menu-item">
-								<a href="#">vision</a>
-							</li>
-							<li class="menu-item">
-								<a href="#">articles </a>
-							</li>
-							<li class="menu-item">
-								<a href="#">careers</a>
-							</li>
-							<li class="menu-item">
-								<a href="#">service terms</a>
-							</li>
-							<li class="menu-item">
-								<a href="#">donate</a>
-							</li>
-						</ul>
-					</div>
-
 				</div>
 				<div class="col-md-2">
 
@@ -175,16 +137,7 @@
 								<a href="#">Home</a>
 							</li>
 							<li class="menu-item">
-								<a href="#">Books</a>
-							</li>
-							<li class="menu-item">
-								<a href="#">Authors</a>
-							</li>
-							<li class="menu-item">
-								<a href="#">Subjects</a>
-							</li>
-							<li class="menu-item">
-								<a href="#">Advanced Search</a>
+								<a asp-action="Products" asp-action="List">Books</a>
 							</li>
 						</ul>
 					</div>
@@ -196,16 +149,13 @@
 						<h5>My account</h5>
 						<ul class="menu-list">
 							<li class="menu-item">
-								<a href="#">Sign In</a>
+								<a class="user-account for-buy" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
 							</li>
 							<li class="menu-item">
-								<a href="#">View Cart</a>
+								<a asp-controller="Cart" asp-action="GetUserCart">View Cart</a>
 							</li>
 							<li class="menu-item">
-								<a href="#">My Wishtlist</a>
-							</li>
-							<li class="menu-item">
-								<a href="#">Track My Order</a>
+								<a asp-controller="UserOrder" asp-action="UserOrders">Track My Order</a>
 							</li>
 						</ul>
 					</div>
@@ -248,7 +198,7 @@
 						<div class="row">
 
 							<div class="col-md-6">
-								<p>© 2022 All rights reserved. Free HTML Template by <a href="https://www.templatesjungle.com/" target="_blank">TemplatesJungle</a></p>
+								<p>© 2022 All rights reserved. Bonkers</p>
 							</div>
 
 							<div class="col-md-6">

@@ -33,6 +33,8 @@ namespace ASM.Controllers
                     return RedirectToAction("ViewOrders", "Staffs");
                 }
             }
+			var genres = await _context.Category.ToListAsync();
+			ViewBag.Genres = genres;
             var products = await _context.Product
                 .Include(p => p.AuthorProducts)
                 .ThenInclude(ap => ap.Author)

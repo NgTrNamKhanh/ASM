@@ -1,4 +1,6 @@
 ﻿@model ASM.Models.Product
+
+
 @{
 	ViewData["Title"] = "Detail";
 	Layout = "~/Views/Shared/_Layout.cshtml";
@@ -9,7 +11,7 @@
 		<div class="row">
 
 			<div class="col-md-6">
-				<a href="#"><img src="@Html.DisplayFor(model => model.ProductImage)"></a>
+				<a href="#"><img src="@Html.DisplayFor(model => model.ProductImage)" style="height=700px"></a>
 			</div>
 
 			<div class="col-md-6 pl-5">
@@ -29,7 +31,7 @@
 						@foreach (var categoryProduct in Model.CategoryProducts)
 						{
 							<span>
-								<a asp-controller="Authors" asp-action="FindAuthorById" asp-route-id="@categoryProduct.CategoryId">
+								<a asp-controller="Categories" asp-action="FindCategoryById" asp-route-id="@categoryProduct.CategoryId">
 									@Html.DisplayFor(modelItem => categoryProduct.Category.CategoryName)
 								</a>
 							</span>
@@ -40,8 +42,13 @@
 					<p>
 						@Html.DisplayFor(model => model.ProductDescription)
 					</p>
-
+					<form id='myform' method='POST' class='quantity' action='#'>
+						<input type='button' value='-' class='qtyminus minus' field='quantity' />
+						<input id="quantity" type='text' name='quantity' value='1' class='qty' />
+						<input type='button' value='+' class='qtyplus plus' field='quantity' />
+					</form>
                     <button type="button" onclick="add(@Model.ProductId)" class="add-to-cart" asp-action="GetUsercart">Add to cart</button>
+					
 				</div>
 			</div>
 
@@ -52,7 +59,9 @@
 	<script>
 		async function add(productId) {
 			try {
-				var response = await fetch(`/Cart/AddItem?productId=${productId}`);
+				var quantity = document.getElementById("quantity").value;
+				var redirect = 1;
+				var response = await fetch(`/Cart/AddItem?productId=${productId}&qty=${quantity}&redirect=${redirect}`);
 				if (response.status == 200) {
 					var result = await response.json();
 					console.log(result);
@@ -64,6 +73,23 @@
 				console.log(err);
 			}
 		}
+
+		jQuery(document).ready(($) => {
+			$('.quantity').on('click', '.plus', function (e) {
+				let $input = $(this).prev('input.qty');
+				let val = parseInt($input.val());
+				$input.val(val + 1).change();
+			});
+
+			$('.quantity').on('click', '.minus',
+				function (e) {
+					let $input = $(this).next('input.qty');
+					var val = parseInt($input.val());
+					if (val > 0) {
+						$input.val(val - 1).change();
+					}
+				});
+		});
 	</script>
 }
 

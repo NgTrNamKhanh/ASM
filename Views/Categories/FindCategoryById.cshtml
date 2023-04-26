@@ -31,7 +31,7 @@
 						</a>
 						<button type="button" onclick="add(@item.ProductId)" class="add-to-cart">Add to Cart</button>
 						<figcaption>
-							<h3><a asp-action="Detail" asp-route-id="@item.ProductId">@Html.DisplayFor(modelItem => item.ProductName)</a></h3>
+							<h3><a asp-controller="Products" asp-action="Detail" asp-route-id="@item.ProductId">@Html.DisplayFor(modelItem => item.ProductName)</a></h3>
 							<p>
 								@foreach (var authorProduct in item.AuthorProducts)
 								{
