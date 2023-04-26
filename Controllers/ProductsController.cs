@@ -34,7 +34,7 @@ namespace ASM.Controllers
                           View(await _context.Product.ToListAsync()) :
                           Problem("Entity set 'ASMContext.Product'  is null.");
         }
-		//[HttpGet]
+		[HttpGet]
 		//[Route("List", Name="GetAllProductsCustomer")]
 		//GET: List Products 
 		public async Task<IActionResult> List()

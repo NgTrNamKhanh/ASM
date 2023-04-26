@@ -30,7 +30,7 @@
 					{
 					<figure class="product-style">
 						<a asp-action="Detail" asp-route-id="@item.ProductId">
-							<img src="@Html.DisplayFor(modelItem => item.ProductImage)" alt="Books" class="product-item" >
+							<img src="@Html.DisplayFor(modelItem => item.ProductImage)" alt="Books" class="product-item" style="height:400px">
 						</a>
 						<button type="button" onclick="add(@item.ProductId)" class="add-to-cart">Add to Cart</button>
 						<figcaption>
@@ -60,7 +60,9 @@
 	<script>
 		async function add(productId){
 			try{
-				var response = await fetch(`/Cart/AddItem?productId=${productId}`);
+				var quantity = 1;
+				var redirect = 0;
+				var response = await fetch(`/Cart/AddItem?productId=${productId}&qty=${quantity}&redirect=${redirect}`);
 				if(response.status == 200){
 					var result = await response.json();
 					console.log(result);

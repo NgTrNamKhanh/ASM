@@ -35,6 +35,7 @@ namespace ASM.Controllers
 			ViewData["Name"] = category.CategoryName;
 			ViewData["Description"] = category.CategoryDescription;
 			var products = await _context.Product
+				.Where(p => p.CategoryProducts.Any(cp => cp.CategoryId == id))
 				.Include(p => p.CategoryProducts)
 				.ThenInclude(ap => ap.Category)
 				.ToListAsync();

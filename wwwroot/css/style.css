@@ -121,7 +121,7 @@ figure {
 img {
   display: inline-block;
   border: 0;
-  max-width: 100%;
+  max-width: 70%;
   height: auto;
   vertical-align: middle;
 }
@@ -1807,7 +1807,6 @@ footer#footer {
     border: 1px solid #EAE8DF;
     padding: 5%;
     cursor: pointer;
-    height: 100%;
 }
 .product-style button.add-to-cart {
     background: #000;

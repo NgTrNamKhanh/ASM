@@ -34,7 +34,8 @@ namespace ASM.Controllers
             ViewData["Name"] = author.AuthorName;
             ViewData["Description"] = author.AuthorDescription;
             var products = await _context.Product
-                .Include(p => p.AuthorProducts)
+				.Where(p => p.AuthorProducts.Any(ap => ap.AuthorId == id))
+				.Include(p => p.AuthorProducts)
                 .ThenInclude(ap => ap.Author)
                 .ToListAsync();
             return View(products);
