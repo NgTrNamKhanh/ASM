@@ -167,11 +167,6 @@ namespace ASM.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
-
-            viewModel.Categories = _context.Category.ToList();
-            viewModel.Authors = _context.Author.ToList();
-
-            
             return View(viewModel);
         }
 

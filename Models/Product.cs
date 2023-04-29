@@ -5,18 +5,6 @@ namespace ASM.Models
 {
     public class Product
     {
-        //public Product() 
-        //{
-        //	AuthorProducts = new List<AuthorProduct>();
-        //	CategoryProducts = new List<CategoryProduct>();
-        //	OrderDetails = new List<OrderDetail>();
-        //          SelectedCategoryIds = new List<int>();
-        //          SelectedAuthorIds = new List<int>();
-        //	Categories = new List<Category>();
-        //	Authors = new List<Author>();	
-
-
-        //      }
         public int ProductId { get; set; }
         public string ProductName { get; set; }
         public string ProductDescription { get; set; }

@@ -25,11 +25,6 @@ namespace ASM.Data
 		public DbSet<ASM.Models.OrderDetail> OrderDetail { get; set; } = default!;
         public DbSet<ASM.Models.OrderStatus> OrderStatus { get; set; }
 
-  //      public DbSet<ASM.Models.Account> Account { get; set; } = default!;
-		//public DbSet<ASM.Models.Customer> Customer { get; set; } = default!;
-		//public DbSet<ASM.Models.Staff> Staff { get; set; } = default!;
-		//public DbSet<ASM.Models.Admin> Admin { get; set; } = default!;
-
         public DbSet<ASM.Models.CartDetails> CartDetails { get; set; }
         public DbSet<ASM.Models.Cart> Carts { get; set; }
 

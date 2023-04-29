@@ -32,7 +32,7 @@ namespace ASM.Repository
                     {
                         CustomerID = userId
                     };
-                    _db.Carts.Add(cart);
+                    //_db.Carts.Add(cart);
                 }
                 _db.SaveChanges();
                 //cart detail 
@@ -56,6 +56,7 @@ namespace ASM.Repository
                     _db.CartDetails.Add(cartItem);
                 }
                 _db.SaveChanges();
+                
                 //If the transaction is committed, all of the operations are successfully applied to the database.
                 //If the transaction is rolled back, none of the operations are applied to the database.
                 transaction.Commit();
@@ -103,7 +104,7 @@ namespace ASM.Repository
             }
             var cart = await _db.Carts
                 .Include(a => a.CartDetails)
-                .ThenInclude(a => a.Product)
+                .ThenInclude(cd => cd.Product)
                 .Where(a => a.CustomerID == userId).FirstOrDefaultAsync();
             return cart;
         }

@@ -21,28 +21,37 @@ namespace ASM.Controllers
         {
             _context = context;
         }
-		[Authorize(Roles = "Admin")]
-		// GET: Categories
+        // GET: Categories index
+        [Authorize(Roles = "Admin")]
 		public async Task<IActionResult> Index()
         {
               return _context.Category != null ? 
                           View(await _context.Category.ToListAsync()) :
                           Problem("Entity set 'ASMContext.Category'  is null.");
         }
-		public async Task<IActionResult> FindCategoryById(int id)
+		public async Task<IActionResult> FindCategoryById(int? id)
 		{
-			var category = await _context.Category.FindAsync(id);
-			ViewData["Name"] = category.CategoryName;
+            if (id == null || _context.Category == null)
+            {
+                return NotFound();
+            }
+            var category = await _context.Category.FindAsync(id);
+            if (category == null)
+            {
+                return NotFound();
+            }
+            ViewData["Name"] = category.CategoryName;
 			ViewData["Description"] = category.CategoryDescription;
 			var products = await _context.Product
 				.Where(p => p.CategoryProducts.Any(cp => cp.CategoryId == id))
-				.Include(p => p.CategoryProducts)
-				.ThenInclude(ap => ap.Category)
+				.Include(p => p.AuthorProducts)
+				.ThenInclude(ap => ap.Author)
 				.ToListAsync();
 			return View(products);
 		}
-		[Authorize(Roles = "Admin")]
-		// GET: Categories/Details/5
+        // GET: Categories/Details/
+
+        [Authorize(Roles = "Admin")]
 		public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Category == null)
@@ -59,17 +68,18 @@ namespace ASM.Controllers
 
             return View(category);
         }
-		[Authorize(Roles = "Admin")]
-		// GET: Categories/Create
+        // GET: Categories/Create
+
+        [Authorize(Roles = "Admin")]
 		public IActionResult Create()
         {
             return View();
         }
-		[Authorize(Roles = "Admin")]
-		// POST: Categories/Create
-		// To protect from overposting attacks, enable the specific properties you want to bind to.
-		// For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-		[HttpPost]
+        // POST: Categories/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admin")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CategoryId,CategoryName,CategoryDescription")] Category category)
         {
@@ -81,8 +91,8 @@ namespace ASM.Controllers
             }
             return View(category);
         }
-		[Authorize(Roles = "Admin")]
-		// GET: Categories/Edit/5
+        // GET: Categories/Edit/
+        [Authorize(Roles = "Admin")]
 		public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Category == null)
@@ -97,11 +107,11 @@ namespace ASM.Controllers
             }
             return View(category);
         }
-		[Authorize(Roles = "Admin")]
-		// POST: Categories/Edit/5
-		// To protect from overposting attacks, enable the specific properties you want to bind to.
-		// For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-		[HttpPost]
+        // POST: Categories/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admin")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("CategoryId,CategoryName,CategoryDescription")] Category category)
         {
@@ -132,9 +142,9 @@ namespace ASM.Controllers
             }
             return View(category);
         }
-		[Authorize(Roles = "Admin")]
-		// GET: Categories/Delete/5
-		public async Task<IActionResult> Delete(int? id)
+        // GET: Categories/Delete/
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Category == null)
             {
@@ -150,9 +160,9 @@ namespace ASM.Controllers
 
             return View(category);
         }
-		[Authorize(Roles = "Admin")]
-		// POST: Categories/Delete/5
-		[HttpPost, ActionName("Delete")]
+        // POST: Categories/Delete/
+        [Authorize(Roles = "Admin")]
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
